@@ -28,7 +28,6 @@ void test3(int n) {
 	while (i <= n) {
 		if (i % 2 == 0) {
 			total += i;
-			printf("%d", i);
 		}
 		i++;
 	}
@@ -36,11 +35,26 @@ void test3(int n) {
 	printf("1부터 n까지의 짝수의 합 = %d\n", total);
 }
 
+void test4() {
+	for (int year = 2020; year <= 3020; year++) {
+		if (year % 4 == 0 && year % 100 == 0) {
+			continue;
+		}
+		else if (year % 4 == 0) {
+			printf("%d년은 윤년입니다.\n", year);
+		}
+		else if (year % 4 == 0 && year % 100 == 0 && year % 400 == 0) {
+			printf("%d년은 윤년입니다.\n", year);
+		}
+	}
+}
+
 int main(void) {
 
 	test1(1700, 500);
 	test2(10);
 	test3(10);
+	test4();
 
 	return 0;
 }
