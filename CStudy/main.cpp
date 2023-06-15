@@ -49,12 +49,64 @@ void test4() {
 	}
 }
 
+void test5(int n) {
+	int flag = 0;
+	if (n == 1) {
+		printf("-1");
+		return;
+	}
+	else {
+
+		for (int i = 2; i < n; i++) {
+			if (n % i == 0) {
+				flag = 1;
+				printf("-1");
+				break;
+			}
+		}
+
+		if (flag == 0) {
+			printf("1");
+		}
+	}
+}
+
+void test6(int n) {
+	int flag = 0;
+
+	if (n == 1) {
+		return;
+	}
+	else if (n == 2) {
+		printf("2");
+		return;
+	}
+	else {
+		for (int i = 2; i < n; i++) {
+			for (int j = 2; j < i; j++) {
+				if (i % j == 0) {
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0) {
+				printf("%d\t", i);
+			}
+			else {
+				flag = 0;
+			}
+		}
+	}
+}
+
 int main(void) {
 
-	test1(1700, 500);
+	/*test1(1700, 500);
 	test2(10);
 	test3(10);
 	test4();
+	test5(10);*/
+	test6(10);
 
 	return 0;
 }
