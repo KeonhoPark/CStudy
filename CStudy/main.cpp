@@ -1,29 +1,32 @@
 #include <stdio.h>
 
 int main(void) {
-	int a = 3.14; // 묵시적 형변환
-	int b = (int)3.14; // 명시적 형변환
-
-	printf("%d", (char)-129);
-
-	/*char x = -1;
-	unsigned char y = 1;
-
-	if (x > y) {
-		printf("true");
-	}
-	else {
-		printf("false");
+	/*int n = 10;
+	for (int i = 0; i <= n; i++) {
+		if (i % 2 == 0) {
+			printf("%d", i);
+		}
 	}*/
 
-	int x = -1;
-	unsigned int y = 1;
-
-	if (x > y) {
-		printf("true");
+	for (int i = 0; i <= 10; i++) {
+		for (int j = 0; j < i; j++) {
+			printf("*");
+		}
+		printf("\n");
 	}
-	else {
-		printf("false");
+
+	printf("\n");
+
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if (j < 10 - i) {
+				printf("*");
+			}
+			else {
+				printf(" ");
+			}
+		}
+		printf("\n");
 	}
 
 	return 0;
