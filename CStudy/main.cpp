@@ -18,13 +18,29 @@ void test2(int n) {
 		}
 	}
 
-	printf("1부터 n까지의 홀수의 합 = %d", total);
+	printf("1부터 n까지의 홀수의 합 = %d\n", total);
+}
+
+void test3(int n) {
+	int total = 0;
+	int i = 1;
+
+	while (i <= n) {
+		if (i % 2 == 0) {
+			total += i;
+			printf("%d", i);
+		}
+		i++;
+	}
+
+	printf("1부터 n까지의 짝수의 합 = %d\n", total);
 }
 
 int main(void) {
 
 	test1(1700, 500);
 	test2(10);
+	test3(10);
 
 	return 0;
 }
