@@ -1,32 +1,14 @@
 #include <stdio.h>
 
 int main(void) {
-	/*int n = 10;
-	for (int i = 0; i <= n; i++) {
-		if (i % 2 == 0) {
-			printf("%d", i);
-		}
-	}*/
+	int n = 1700;
+	int m = 500;
 
-	for (int i = 0; i <= 10; i++) {
-		for (int j = 0; j < i; j++) {
-			printf("*");
-		}
-		printf("\n");
+	if (n % m != 0) {
+		printf("지급되어야 하는 동전의 수는 %d 입니다.\n", (n / m) + 1);
 	}
-
-	printf("\n");
-
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			if (j < 10 - i) {
-				printf("*");
-			}
-			else {
-				printf(" ");
-			}
-		}
-		printf("\n");
+	else {
+		printf("지급되어야 하는 동전의 수는 %d 입니다.\n", n / m);
 	}
 
 	return 0;
