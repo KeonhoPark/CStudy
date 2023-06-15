@@ -1,19 +1,29 @@
 #include <stdio.h>
 
 int main(void) {
-	printf("%-010d %d %0.2f\n", 10, 23, 3.14f);
-	printf("sizeof(int) : %u\n", sizeof(int));
-	printf("sizeof(long) : %u\n", sizeof(long));
-	printf("sizeof(char) : %u\n", sizeof(char));
-	printf("sizeof('A') : %u\n", sizeof('A'));
+	int a = 3.14; // 묵시적 형변환
+	int b = (int)3.14; // 명시적 형변환
 
-	int a = 20 + 5 * 5;
+	printf("%d", (char)-129);
 
-	if (a) {
-		
+	/*char x = -1;
+	unsigned char y = 1;
+
+	if (x > y) {
+		printf("true");
 	}
 	else {
+		printf("false");
+	}*/
 
+	int x = -1;
+	unsigned int y = 1;
+
+	if (x > y) {
+		printf("true");
+	}
+	else {
+		printf("false");
 	}
 
 	return 0;
