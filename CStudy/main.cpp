@@ -163,6 +163,12 @@ void sort(int* arr_ptr, int count) {
 	}
 }
 
+void swap(int* x, int* y) {
+	int tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -173,43 +179,13 @@ int main(void) {
 	test6(10);
 	test7(3);*/
 	
-	/*int arr[] = { 1, 2, 3, 4, 5 };
-	size_t arraySize = sizeof(arr);
-	size_t arrayElement = sizeof(arr[0]);
-	size_t count = sizeof(arr) / sizeof(arr[0]);
-
-	printf("배열 전체의 크기 %d\n", arraySize);
-	printf("배열 원소 하나의 크기 %d\n", arrayElement);
-	printf("배열 원소의 수 %d\n", count);
-
-	for (int i = 0; i < count; i++) {
-		printf("%d\t", arr[i]);*/
-
-	/*int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	printf("arr : %p\n", arr);
-	printf("배열의 크기: %llu\n", sizeof(arr));
-	print(arr, int(sizeof(arr) / sizeof(arr[0])));
-	int max = getMax(arr, int(sizeof(arr) / sizeof(arr[0])));
-	printf("\n배열의 최댓값: %d", max);
-	sort(ary, int(sizeof(ary) / sizeof(ary[0])));*/
-
 	int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
-	int total = 0;
-	size_t row = sizeof(arr) / sizeof(arr[0]);
-	size_t col = sizeof(arr[0]) / sizeof(arr[0][0]);
-	printf("row = %llu\n", row);
-	printf("col = %llu\n", col);
+	int row = int(sizeof(arr) / sizeof(arr[0]));
 
-	for (int i = 0; i < row; i++) {
-		for (int j = 0; j < col; j++) {
-			printf("%d", arr[i][j]);
-			total += arr[i][j];
-		}
-		printf("\n");
-	}
-
-	printf("total: %d, avg: %d", total, total / (col * row));
-
+	int a = 10;
+	int b = 20;
+	swap(&a, &b);
+	printf("a = %d, b = %d", a, b);
 
 	return 0;
 }
