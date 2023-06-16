@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 
 void test1(int n, int m) {
@@ -123,9 +124,20 @@ int main(void) {
 	test2(10);
 	test3(10);
 	test4();
-	test5(10);*/
-	//test6(10);
-	test7(3);
+	test5(10);
+	test6(10);
+	test7(3);*/
+	
+	freopen("C:/새 폴더/새 텍스트 문서.txt", "r", stdin);
+	int a, b, c;
+	scanf(" %d", &a);
+	scanf(" %d", &b);
+	scanf(" %d", &c);
+	scanf("%d %d %d", &a, &b, &c);
+	printf("%d %d %d", a, b, c);
+	getchar();
+	getchar();
+
 
 	return 0;
 }
