@@ -227,8 +227,17 @@ void test12(int n) {
 	}
 
 	printf("Àü : %d, ÈÄ : %d\n", n / divider, n % divider);
+}
 
-
+void test13(int n) {
+	for (int i = 1; i <= n; i++) {
+		if (i * i > n) {
+			break;
+		}
+		else {
+			printf("%d\t", i);
+		}
+	}
 }
 
 int main(void) {
@@ -244,7 +253,8 @@ int main(void) {
 	/*test9(2, 3);*/
 	/*test10(1752);*/
 	//test11(3);
-	test12(1234);
+	//test12(1234);
+	test13(10);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
