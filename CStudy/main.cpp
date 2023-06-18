@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
+#include <string.h>
 
 int ary[] = {5, 2, 3, 1, 4, 4, 5, 2};
 
@@ -240,6 +241,37 @@ void test13(int n) {
 	}
 }
 
+void test14(char a[], char b[]) {
+	if (strcmp(a, b) == 0) {
+		printf("무승부\n");
+		return;
+	}
+	else {
+		if (strcmp(a, "가위") == 0 && strcmp(b, "바위") == 0) {
+			printf("b가 승자입니다.");
+		}
+		else if (strcmp(a, "가위") == 0 && strcmp(b, "보") == 0) {
+			printf("a가 승자입니다.");
+		}
+		else if (strcmp(a, "바위") == 0 && strcmp(b, "가위") == 0) {
+			printf("a가 승자입니다.");
+		}
+		else if (strcmp(a, "바위") == 0 && strcmp(b, "보") == 0) {
+			printf("b가 승자입니다.");
+		}
+		else if (strcmp(a, "보") == 0 && strcmp(b, "가위") == 0) {
+			printf("b가 승자입니다.");
+		}
+		else if (strcmp(a, "보") == 0 && strcmp(b, "바위") == 0) {
+			printf("a가 승자입니다.");
+		}
+
+
+	}
+	
+
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -254,7 +286,10 @@ int main(void) {
 	/*test10(1752);*/
 	//test11(3);
 	//test12(1234);
-	test13(10);
+	//test13(10);
+	char a[] = "보";
+	char b[] = "바위";
+	test14(a, b);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
