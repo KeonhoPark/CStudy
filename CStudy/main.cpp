@@ -323,6 +323,18 @@ void test18(int n) {
 	printf("%d\n", count);
 }
 
+void test19(int threeCost, int oneCost) {
+	int costA = threeCost * 3 + oneCost;
+	int costB = oneCost * 10;
+
+	if (costA > costB) {
+		printf("요금 : %d", costB);
+	}
+	else {
+		printf("요금 : %d", costA);
+	}
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -344,7 +356,8 @@ int main(void) {
 	/*test15(5);*/
 	/*test16(512);*/
 	/*test17();*/
-	test18(39);
+	/*test18(39);*/
+	test19(3000, 1100);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
