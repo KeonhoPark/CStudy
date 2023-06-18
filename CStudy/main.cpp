@@ -169,6 +169,22 @@ void swap(int* x, int* y) {
 	*y = tmp;
 }
 
+void test8(int n) {
+
+	if (n == 0) {
+		printf("1");
+		return;
+	}
+	else {
+		int total = 1;
+		for (int i = 1; i <= n; i++) {
+			total *= 2;
+		}
+
+		printf("%d", total);
+	}
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -178,14 +194,15 @@ int main(void) {
 	test5(10);
 	test6(10);
 	test7(3);*/
+	test8(3);
 	
-	int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
+	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
 	int row = int(sizeof(arr) / sizeof(arr[0]));
 
 	int a = 10;
 	int b = 20;
 	swap(&a, &b);
-	printf("a = %d, b = %d", a, b);
+	printf("a = %d, b = %d", a, b);*/
 
 	return 0;
 }
