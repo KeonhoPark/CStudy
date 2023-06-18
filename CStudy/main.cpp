@@ -265,11 +265,21 @@ void test14(char a[], char b[]) {
 		else if (strcmp(a, "보") == 0 && strcmp(b, "바위") == 0) {
 			printf("a가 승자입니다.");
 		}
-
-
 	}
-	
+}
 
+void test15(int n) {
+	int res = 1;
+
+	if (n == 1) {
+		printf("%d\n", res);
+	}
+	else {
+		for (int i = 0; i < n-1; i++) {
+			res *= 10;
+		}
+		printf("%d\n", res);
+	}
 }
 
 int main(void) {
@@ -287,9 +297,10 @@ int main(void) {
 	//test11(3);
 	//test12(1234);
 	//test13(10);
-	char a[] = "보";
+	/*char a[] = "보";
 	char b[] = "바위";
-	test14(a, b);
+	test14(a, b);*/
+	test15(5);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
