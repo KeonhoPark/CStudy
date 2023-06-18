@@ -185,6 +185,15 @@ void test8(int n) {
 	}
 }
 
+void test9(int n, int m) {
+	int total = n;
+
+	for (int i = 1; i < m + 1;i++) {
+		printf("%d\t", total);
+		total *= n;
+	}
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -194,7 +203,9 @@ int main(void) {
 	test5(10);
 	test6(10);
 	test7(3);*/
-	test8(3);
+	/*test8(3);*/
+	test9(2, 3);
+
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
 	int row = int(sizeof(arr) / sizeof(arr[0]));
