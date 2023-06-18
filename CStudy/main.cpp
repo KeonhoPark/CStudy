@@ -206,7 +206,7 @@ void test10(int cost) {
 	printf("%d\n", result);
 }
 
-void test11(int n) {
+int test11(int n) {
 	int count = 0;
 
 	while (n > 0) {
@@ -215,6 +215,20 @@ void test11(int n) {
 	}
 
 	printf("%d", count);
+	return count;
+}
+
+void test12(int n) {
+	int count = test11(n);
+	int half = count / 2;
+	int divider = 1;
+	for (int i = 0; i < half; i++) {
+		divider *= 10;
+	}
+
+	printf("Àü : %d, ÈÄ : %d\n", n / divider, n % divider);
+
+
 }
 
 int main(void) {
@@ -229,7 +243,8 @@ int main(void) {
 	/*test8(3);*/
 	/*test9(2, 3);*/
 	/*test10(1752);*/
-	test11(3);
+	//test11(3);
+	test12(1234);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
