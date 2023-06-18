@@ -282,6 +282,22 @@ void test15(int n) {
 	}
 }
 
+void test16(int n) {
+	int arr[100];
+	int i = 0;
+
+	while (n > 0) {
+		arr[i] = n % 10;
+		n /= 10;
+		i++;
+	}
+	for (int i = int(sizeof(arr) / sizeof(arr[0])); i >= 0; i--) {
+		if (0 <= arr[i] && arr[i] <= 9) {
+			printf("%d\n", arr[i]);
+		}
+	}
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -300,7 +316,8 @@ int main(void) {
 	/*char a[] = "º¸";
 	char b[] = "¹ÙÀ§";
 	test14(a, b);*/
-	test15(5);
+	/*test15(5);*/
+	test16(512);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
