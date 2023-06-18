@@ -298,6 +298,14 @@ void test16(int n) {
 	}
 }
 
+void test17(void) {
+	int start = 1;
+	int end = 10;
+	for (int offset = 0; offset <= 4; offset++) {
+		printf("%d\t%d\t", start + offset, end - offset);
+	}
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -317,7 +325,8 @@ int main(void) {
 	char b[] = "¹ÙÀ§";
 	test14(a, b);*/
 	/*test15(5);*/
-	test16(512);
+	/*test16(512);*/
+	test17();
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
