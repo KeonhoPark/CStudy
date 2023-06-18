@@ -306,6 +306,23 @@ void test17(void) {
 	}
 }
 
+void test18(int n) {
+	int count = 0;
+
+	for (int i = 1; i <= n; i++) {
+		int idx = i;
+		while (idx > 0){
+			int tmp = idx % 10;
+			if (tmp == 3 || tmp == 6 || tmp == 9) {
+				count += 1;
+			}
+			idx /= 10;
+		}
+	}
+
+	printf("%d\n", count);
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -326,7 +343,8 @@ int main(void) {
 	test14(a, b);*/
 	/*test15(5);*/
 	/*test16(512);*/
-	test17();
+	/*test17();*/
+	test18(39);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
