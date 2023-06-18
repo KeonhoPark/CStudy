@@ -128,11 +128,11 @@ void func(int a, int b) {
 
 }
 
-void print(int* arr, int count) {
-	printf("arr : %p\n", arr);
-	printf("배열크기 : %llu\n", sizeof(arr));
-	printf("배열원소의 수 : %d", count);
-}
+//void print(int* arr, int count) {
+//	printf("arr : %p\n", arr);
+//	printf("배열크기 : %llu\n", sizeof(arr));
+//	printf("배열원소의 수 : %d", count);
+//}
 
 int getMax(int* arr_ptr, int count) {
 	int max = -2147483648;
@@ -194,6 +194,29 @@ void test9(int n, int m) {
 	}
 }
 
+void test10(int cost) {
+	int coins[] = { 500, 100, 50, 10, 5, 1 };
+	int result = 0;
+
+	for (int i = 0; i<int(sizeof(coins) / sizeof(coins[0])); i++) {
+		result += cost / coins[i];
+		cost %= coins[i];
+	}
+
+	printf("%d\n", result);
+}
+
+void test11(int n) {
+	int count = 0;
+
+	while (n > 0) {
+		n /= 10;
+		count += 1;
+	}
+
+	printf("%d", count);
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -204,7 +227,9 @@ int main(void) {
 	test6(10);
 	test7(3);*/
 	/*test8(3);*/
-	test9(2, 3);
+	/*test9(2, 3);*/
+	/*test10(1752);*/
+	test11(3);
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
