@@ -391,15 +391,81 @@ void print2(char* menu[], int count) {
 	printf(SIZE, sizeof(menu), "sizeof(menu)");
 }
 
+void print3(int x) {
+	printf("%d", x);
+}
+
+void print4(int* arr, int count) {
+	for (int i = 0; i < count; i++) {
+		printf("%d", arr[i]);
+	}
+	printf("\n");
+}
+
+void swap1(int* x, int* y) {
+	int tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
+
+void selectionSort(int* arr, int count) {
+	for (int i = 0; i < (count - 1); i++) {
+		int min = i;
+		for (int j = (i + 1); j < count; j++) {
+			if (arr[min] > arr[j]){
+				min = j;
+			}
+		}
+		swap1(arr+i, arr+min);
+	}
+
+}
+
+void sort1(int* arr, int count, void (*sortFunc)(int*, int)) {
+	sortFunc(arr, count);
+}
+
 int main(void) {
 	
-	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	int (*ptr)[10] = &arr;
-	for (int i = 0; i < 1; i++) {
+	/*int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };*/
+	//int (*ptr)[10] = &arr;
+	/*int(*ptr)[3] = &arr;
+	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 9; j++) {
-			printf("%d \n", ptr[i][j]);
+			printf("%d \n", arr[i][j]);
 		}
-	}
+	}*/
+
+	//void pointer의 안좋은 예시
+	/*int* a;
+	void* ptr = &a;
+	*(double*)ptr = 3.14;
+
+	int a[] = { 1, 2, 3 };
+	int b[] = { 4, 5, 6 };
+	int c[] = { 7, 8, 9 };
+	int* ptr[] = { a, b, c };*/
+
+	/*void (*funcPtr)(int) = print3;
+	funcPtr(3);*/
+
+	/*int arr[] = { 1, 2, 4, 3, 6, 5, 7, 8, 9 };
+	int count = (int)(sizeof(arr) / sizeof(arr[0]));*/
+	/*print4(arr, count);
+	sort(arr, count);
+	print4(arr, count);*/
+	/*void (*sortFunc)(int*, int) = selectionSort;
+	sort1(arr, count, sortFunc);
+	for (int i = 0; i < count; i++) {
+		printf("%d", arr[i]);
+	}*/
+
+	int a = 10;
+	void* ptr = &a;
+	printf("%p : %s\n", &a, "&a");
+	printf("%p : %s\n", ptr, "ptr");
+	printf("%d : %s\n", *(int*)ptr, " * (int*)ptr");
+
 
 	return 0;
 }
