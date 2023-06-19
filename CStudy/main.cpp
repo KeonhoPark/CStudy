@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 #include <string.h>
+#define ADDR "%p : %s\n" //단순 메크로
+#define DATA "%d : %s\n"
 
 int ary[] = {5, 2, 3, 1, 4, 4, 5, 2};
 
@@ -335,6 +337,13 @@ void test19(int threeCost, int oneCost) {
 	}
 }
 
+void test20_1(unsigned char doors) {
+	for (int i = 7; i >= 0; i--) {
+		int resBit = doors >> i & 1;
+		printf("%d", resBit);
+	}
+}
+
 int main(void) {
 
 	/*test1(1700, 500);
@@ -357,7 +366,25 @@ int main(void) {
 	/*test16(512);*/
 	/*test17();*/
 	/*test18(39);*/
-	test19(3000, 1100);
+	/*test19(3000, 1100);*/
+	/*unsigned char a = 19;
+	test20_1(a);*/
+
+	int arr[] = { 1, 2, 3 };
+	int* ptr = arr;
+	printf(ADDR, arr, "arr");
+	printf(ADDR, ptr, "ptr");
+
+	int a = 10;
+	int* p = &a;
+	printf(DATA, a, "a");
+	printf(DATA, *p, "*p");
+	printf(DATA, p[0], "p[0]");
+
+	printf(ADDR, &a, "&a");
+	printf(ADDR, p, "p");
+	printf(ADDR, p + 0, "p + 0");
+	printf(ADDR, &p[0], "&p[0]");
 
 	
 	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
