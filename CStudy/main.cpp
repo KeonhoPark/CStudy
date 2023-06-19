@@ -3,6 +3,7 @@
 #include <string.h>
 #define ADDR "%p : %s\n" //단순 메크로
 #define DATA "%d : %s\n"
+#define SIZE "%llu : %s\n"
 
 int ary[] = {5, 2, 3, 1, 4, 4, 5, 2};
 
@@ -344,56 +345,62 @@ void test20_1(unsigned char doors) {
 	}
 }
 
+//int toInteger(char* pos) {
+//	int integer = 0;
+//	printf("%llu\n", sizeof(pos));
+//	while ((*pos >= '0') && (*pos <= '9')) {
+//		integer *= 10;
+//		integer += *pos - '0';
+//		pos++;
+//	}
+//
+//	return integer;
+//}
+
+int toInteger(char* pos, char** tail) {
+	int integer = 0;
+	while ((*pos >= '0') && (*pos <= '9')) {
+		integer *= 10;
+		integer += *pos - '0';
+		pos++;
+		*tail = pos;
+	}
+
+	return integer;
+}
+
+void print(int ary[][3], int row) {
+	for (int i = 0; i < row; i++) {
+		int col = (int)(sizeof(*(ary + 0)) / sizeof(*(*(ary + 0)+0)));
+		for (int j = 0; j < col; j++) {
+			printf("%d", ary[i][j]);
+			printf("%d", *(*(ary + i) + j));
+		}
+		printf("\n");
+	}
+
+}
+
+void print1(char(*menu)[13], int count) {
+	printf(SIZE, sizeof(menu), "sizeof(menu)");
+}
+
+//const 키워드가 떨어져 나가기 때문에 경고가 발생할 수 있음
+//메인에서는 const가 붙어있었지만 파라미터에는 const 키워드가 없기 때문
+void print2(char* menu[], int count) {
+	printf(SIZE, sizeof(menu), "sizeof(menu)");
+}
+
 int main(void) {
-
-	/*test1(1700, 500);
-	test2(10);
-	test3(10);
-	test4();
-	test5(10);
-	test6(10);
-	test7(3);*/
-	/*test8(3);*/
-	/*test9(2, 3);*/
-	/*test10(1752);*/
-	//test11(3);
-	//test12(1234);
-	//test13(10);
-	/*char a[] = "보";
-	char b[] = "바위";
-	test14(a, b);*/
-	/*test15(5);*/
-	/*test16(512);*/
-	/*test17();*/
-	/*test18(39);*/
-	/*test19(3000, 1100);*/
-	/*unsigned char a = 19;
-	test20_1(a);*/
-
-	int arr[] = { 1, 2, 3 };
-	int* ptr = arr;
-	printf(ADDR, arr, "arr");
-	printf(ADDR, ptr, "ptr");
-
-	int a = 10;
-	int* p = &a;
-	printf(DATA, a, "a");
-	printf(DATA, *p, "*p");
-	printf(DATA, p[0], "p[0]");
-
-	printf(ADDR, &a, "&a");
-	printf(ADDR, p, "p");
-	printf(ADDR, p + 0, "p + 0");
-	printf(ADDR, &p[0], "&p[0]");
-
-	
-	/*int arr[][3] = { {1, 2, 3}, {4, 5, 6} };
-	int row = int(sizeof(arr) / sizeof(arr[0]));
-
-	int a = 10;
-	int b = 20;
-	swap(&a, &b);
-	printf("a = %d, b = %d", a, b);*/
+	char* str = "a12a34";
+	char* tail = NULL;
+	int integer = toInteger(str, &tail);
+	if ((tail == NULL) || (*tail != '\0')) {
+		printf("변환실패!!\n");
+	}
+	else {
+		printf("변환성공!!\n");
+	}
 
 	return 0;
 }
