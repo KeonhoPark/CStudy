@@ -138,34 +138,34 @@ void func(int a, int b) {
 //	printf("배열원소의 수 : %d", count);
 //}
 
-int getMax(int* arr_ptr, int count) {
-	int max = -2147483648;
+//int getMax(int* arr_ptr, int count) {
+//	int max = -2147483648;
+//
+//	for (int i = 0; i < count; i++) {
+//		if (max < *(arr_ptr + i)) {
+//			max = *(arr_ptr + i);
+//		}
+//	}
+//
+//	return max;
+//
+//}
 
-	for (int i = 0; i < count; i++) {
-		if (max < *(arr_ptr + i)) {
-			max = *(arr_ptr + i);
-		}
-	}
-
-	return max;
-
-}
-
-void sort(int* arr_ptr, int count) {
-	int max = getMax(arr_ptr, count);
-
-	int sorted[6] = {0};
-
-	for (int i = 0; i < count; i++) {
-		sorted[*(arr_ptr + i)]++;
-	}
-
-	for (int j = int(sizeof(sorted) / sizeof(sorted[0])); j > 0; j--) {
-		for (int k = 0; k < sorted[j]; k++) {
-			printf("%d\t", j);
-		}
-	}
-}
+//void sort(int* arr_ptr, int count) {
+//	int max = getMax(arr_ptr, count);
+//
+//	int sorted[6] = {0};
+//
+//	for (int i = 0; i < count; i++) {
+//		sorted[*(arr_ptr + i)]++;
+//	}
+//
+//	for (int j = int(sizeof(sorted) / sizeof(sorted[0])); j > 0; j--) {
+//		for (int k = 0; k < sorted[j]; k++) {
+//			printf("%d\t", j);
+//		}
+//	}
+//}
 
 void swap(int* x, int* y) {
 	int tmp = *x;
@@ -392,14 +392,13 @@ void print2(char* menu[], int count) {
 }
 
 int main(void) {
-	char* str = "a12a34";
-	char* tail = NULL;
-	int integer = toInteger(str, &tail);
-	if ((tail == NULL) || (*tail != '\0')) {
-		printf("변환실패!!\n");
-	}
-	else {
-		printf("변환성공!!\n");
+	
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int (*ptr)[10] = &arr;
+	for (int i = 0; i < 1; i++) {
+		for (int j = 0; j < 9; j++) {
+			printf("%d \n", ptr[i][j]);
+		}
 	}
 
 	return 0;
