@@ -444,19 +444,33 @@ void print(char(*menuStr)[20], size_t size) {
 	}
 }
 
-struct _person{
-	char name[20];
-	int age;
+//void printPerson(struct _person);
+//#define ADDR "%p : %s\n"
+//
+//void printPerson(struct _person* p) {
+//	printf("%s\n", p -> name);
+//	printf("%d\n", p -> age);
+//	printf(ADDR, p -> name, "p.name");
+//	printf(ADDR, &p ->age, "&p.age");
+//}
+
+struct _home {
+	char addr[100];
 };
 
-void printPerson(struct _person);
-#define ADDR "%p : %s\n"
+struct _person {
+	char name[20];
+	int age;
+	struct _person* next;
+};
 
-void printPerson(struct _person* p) {
-	printf("%s\n", p -> name);
-	printf("%d\n", p -> age);
-	printf(ADDR, p -> name, "p.name");
-	printf(ADDR, &p ->age, "&p.age");
+void printPerson2(struct _person* p) {
+	if (p == NULL) {
+		return;
+	}
+	printf("이름 : %s\n", p->name);
+	printf("나이 : %d\n", p->age);
+	printPerson2(p->next);
 }
 
 int main(void) {
@@ -464,7 +478,7 @@ int main(void) {
 	size_t size = sizeof(menu) / sizeof(menu[0]);
 	print(menu, size);*/
 
-	struct _person person = { "홍길동", 20 };
+	/*struct _person person = { "홍길동", 20 };
 	printPerson(&person);
 	printf(ADDR, person.name, "person.name");
 	printf(ADDR, &person.age, "person.age");
@@ -473,6 +487,14 @@ int main(void) {
 	int count = (int)(sizeof(persons) / sizeof(persons[0]));
 	for (int i = 0; i < count; i++) {
 		printPerson(&persons[i]);
-	}
+	}*/
+
+	/*struct _person person = { "박건호", 20, {"서울"} };
+	printf("%s %d %s\n", person.name, person.age, person.home.addr);*/
+
+	struct _person p1 = { "홍길동", 20, NULL };
+	struct _person p2 = { "박건호", 30, &p1 };
+	printPerson2(&p1);
+	printPerson2(&p2);
 	return 0;
 }
