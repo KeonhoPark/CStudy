@@ -369,17 +369,17 @@ int toInteger(char* pos, char** tail) {
 	return integer;
 }
 
-void print(int ary[][3], int row) {
-	for (int i = 0; i < row; i++) {
-		int col = (int)(sizeof(*(ary + 0)) / sizeof(*(*(ary + 0)+0)));
-		for (int j = 0; j < col; j++) {
-			printf("%d", ary[i][j]);
-			printf("%d", *(*(ary + i) + j));
-		}
-		printf("\n");
-	}
-
-}
+//void print(int ary[][3], int row) {
+//	for (int i = 0; i < row; i++) {
+//		int col = (int)(sizeof(*(ary + 0)) / sizeof(*(*(ary + 0)+0)));
+//		for (int j = 0; j < col; j++) {
+//			printf("%d", ary[i][j]);
+//			printf("%d", *(*(ary + i) + j));
+//		}
+//		printf("\n");
+//	}
+//
+//}
 
 void print1(char(*menu)[13], int count) {
 	printf(SIZE, sizeof(menu), "sizeof(menu)");
@@ -437,11 +437,42 @@ int doubleCompare(void* d1, void* d2) {
 	return (int)((*dp1 * 10000) - (*dp2 * 10000));
 }
 
+void print(char(*menuStr)[20], size_t size) {
+	printf("%I64u\n", size);
+	for (size_t i = 0; i < size; i++) {
+		printf("%I64u. %s\n", i + 1, menuStr[i]);
+	}
+}
+
+struct _person{
+	char name[20];
+	int age;
+};
+
+void printPerson(struct _person);
+#define ADDR "%p : %s\n"
+
+void printPerson(struct _person* p) {
+	printf("%s\n", p -> name);
+	printf("%d\n", p -> age);
+	printf(ADDR, p -> name, "p.name");
+	printf(ADDR, &p ->age, "&p.age");
+}
+
 int main(void) {
-	int a = 10;
-	int b = 20;
+	/*char menu[][20] = { "입력하기", "출력하기", "종료하기" };
+	size_t size = sizeof(menu) / sizeof(menu[0]);
+	print(menu, size);*/
 
-	
+	struct _person person = { "홍길동", 20 };
+	printPerson(&person);
+	printf(ADDR, person.name, "person.name");
+	printf(ADDR, &person.age, "person.age");
 
+	struct _person persons[2] = { {"박건호", 10}, {"홍길동", 20} };
+	int count = (int)(sizeof(persons) / sizeof(persons[0]));
+	for (int i = 0; i < count; i++) {
+		printPerson(&persons[i]);
+	}
 	return 0;
 }
