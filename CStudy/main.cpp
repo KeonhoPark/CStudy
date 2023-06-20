@@ -4,6 +4,8 @@
 #define ADDR "%p : %s\n" //단순 메크로
 #define DATA "%d : %s\n"
 #define SIZE "%llu : %s\n"
+//구조체 패딩을 없애기 위해 1바이트 단위로 정렬
+//#pragma pack(1)
 
 int ary[] = {5, 2, 3, 1, 4, 4, 5, 2};
 
@@ -473,6 +475,18 @@ void printPerson2(struct _person* p) {
 	printPerson2(p->next);
 }
 
+struct A {
+	char c;
+	int i;
+	short s;
+};
+
+struct B {
+	char c;
+	short s;
+	int i;
+};
+
 int main(void) {
 	/*char menu[][20] = { "입력하기", "출력하기", "종료하기" };
 	size_t size = sizeof(menu) / sizeof(menu[0]);
@@ -492,9 +506,12 @@ int main(void) {
 	/*struct _person person = { "박건호", 20, {"서울"} };
 	printf("%s %d %s\n", person.name, person.age, person.home.addr);*/
 
-	struct _person p1 = { "홍길동", 20, NULL };
+	/*struct _person p1 = { "홍길동", 20, NULL };
 	struct _person p2 = { "박건호", 30, &p1 };
 	printPerson2(&p1);
-	printPerson2(&p2);
+	printPerson2(&p2);*/
+
+	printf("%llu\n", sizeof(struct A));
+	printf("%llu\n", sizeof(struct B));
 	return 0;
 }
