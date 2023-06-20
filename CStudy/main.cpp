@@ -504,28 +504,21 @@ struct node{
 
 //정수값을 가지는 노드를 생성하여 반환하는 함수
 node_t* makeNode(int data) {
-	node_t* node = (node_t*)(malloc(sizeof(node_t)));
-	if (node == NULL) {
-		return NULL;
-	}
-	node->data = data;
-	node->next = NULL;
-	return node;
+	node_t* newNodeAddr = (node_t*)(malloc(sizeof(node_t)));
+	if (newNodeAddr == NULL) return NULL;
+	newNodeAddr->data = data;
+	newNodeAddr->next = NULL;
+	return newNodeAddr;
 }
 //노드를 추가하는 함수
-bool_t insertNode(node_t** root, int data) {
-	node_t* node = makeNode(data);
-	if (node == NULL) return FALSE;
-	if (root == NULL) {
-		*root = node;
+bool_t insertNode(node_t** rootPtrPtr, int data) {
+	node_t* newNodeAddr = makeNode(data);
+	if (newNodeAddr == NULL) return FALSE;
+	while (*rootPtrPtr != NULL) {
+		rootPtrPtr = &(*rootPtrPtr)->next;
 	}
-	else {
-		node_t* cur = *root;
-		while (cur->next != NULL) {
-			cur = cur->next;
-		}
-		cur->next = node;
-	}
+	*rootPtrPtr = newNodeAddr;
+	return TRUE;
 }
 
 void printNode(node_t* root) {
@@ -535,36 +528,64 @@ void printNode(node_t* root) {
 	}
 }
 
-int main(void) {
-	/*char menu[][20] = { "입력하기", "출력하기", "종료하기" };
-	size_t size = sizeof(menu) / sizeof(menu[0]);
-	print(menu, size);*/
+bool_t deleteNode(node_t** root, int data) {
+	while (*root != NULL && (*root)->data != data) {
+		root = &(*root)->next;
+	}
+	if (*root == NULL) return FALSE;
+	node_t* node = *root;
+	*root = (*root)->next; // 다음노드를 가리키게됨
+	free(node);
+	return TRUE;
+}
 
-	/*struct _person person = { "홍길동", 20 };
-	printPerson(&person);
-	printf(ADDR, person.name, "person.name");
-	printf(ADDR, &person.age, "person.age");
+union _common {
+	int a;
+	short b;
+	char c;
+};
 
-	struct _person persons[2] = { {"박건호", 10}, {"홍길동", 20} };
-	int count = (int)(sizeof(persons) / sizeof(persons[0]));
+void printOdd(int(*ptr)[10], int count) {
+	printf("홀수 출력: ");
+
 	for (int i = 0; i < count; i++) {
-		printPerson(&persons[i]);
-	}*/
+		if (*(*ptr + i) % 2 == 1) {
+			printf("%d, ", *(*ptr + i));
+		}
+	}
+}
 
-	/*struct _person person = { "박건호", 20, {"서울"} };
-	printf("%s %d %s\n", person.name, person.age, person.home.addr);*/
+void printEven(int(*ptr)[10], int count) {
+	printf("짝수 출력: ");
 
-	/*struct _person p1 = { "홍길동", 20, NULL };
-	struct _person p2 = { "박건호", 30, &p1 };
-	printPerson2(&p1);
-	printPerson2(&p2);*/
+	for (int i = 0; i < count; i++) {
+		if (*(*ptr + i) % 2 == 0) {
+			printf("%d, ", *(*ptr + i));
+		}
+	}
 
-	/*printf("%llu\n", sizeof(struct A));
-	printf("%llu\n", sizeof(struct B));*/
+}
 
-	node_t* root = NULL;
-	insertNode(&root, 3);
-	insertNode(&root, 5);
-	insertNode(&root, 7);
+int main(void) {
+	/*node_t* rootPtr = NULL;
+	insertNode(&rootPtr, 3);
+	insertNode(&rootPtr, 5);
+	insertNode(&rootPtr, 7);
+
+	printNode(rootPtr);*/
+
+	int arr[10] = { 0, };
+	int count = (int)(sizeof(arr) / sizeof(arr[0]));
+	printf("총 10개의 숫자 입력\n");
+	for (int i = 0; i < 10; i++) {
+		printf("입력: ");
+		scanf("%d", &arr[i]);
+	}
+	printOdd(&arr, count);
+	printEven(&arr, count);
+
+
+
+
 	return 0;
 }
