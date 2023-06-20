@@ -566,6 +566,22 @@ void printEven(int(*ptr)[10], int count) {
 
 }
 
+void toDecimal(int n) {
+	char byte[8] = { 0, };
+	int count = (int)(sizeof(byte) / sizeof(byte[0]));
+	int idx = 0;
+
+	while (n > 0) {
+		byte[idx] = n % 2;
+		n /= 2;
+		idx++;
+	}
+
+	for (int i = idx - 1; i >= 0; i--) {
+		printf("%d", byte[i]);
+	}
+}
+
 int main(void) {
 	/*node_t* rootPtr = NULL;
 	insertNode(&rootPtr, 3);
@@ -574,7 +590,7 @@ int main(void) {
 
 	printNode(rootPtr);*/
 
-	int arr[10] = { 0, };
+	/*int arr[10] = { 0, };
 	int count = (int)(sizeof(arr) / sizeof(arr[0]));
 	printf("총 10개의 숫자 입력\n");
 	for (int i = 0; i < 10; i++) {
@@ -582,7 +598,13 @@ int main(void) {
 		scanf("%d", &arr[i]);
 	}
 	printOdd(&arr, count);
-	printEven(&arr, count);
+	printEven(&arr, count);*/
+
+	int a = 0;
+
+	printf("10진수 정수 입력: ");
+	scanf("%d", &a);
+	toDecimal(a);
 
 
 
