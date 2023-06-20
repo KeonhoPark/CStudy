@@ -1,11 +1,15 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
 #define ADDR "%p : %s\n" //단순 메크로
 #define DATA "%d : %s\n"
 #define SIZE "%llu : %s\n"
+#define TRUE 1
+#define FALSE 0
 //구조체 패딩을 없애기 위해 1바이트 단위로 정렬
 //#pragma pack(1)
+typedef int bool_t;
 
 int ary[] = {5, 2, 3, 1, 4, 4, 5, 2};
 
@@ -460,20 +464,24 @@ struct _home {
 	char addr[100];
 };
 
-struct _person {
+typedef struct _person {
 	char name[20];
 	int age;
-	struct _person* next;
-};
+} person_t;
 
-void printPerson2(struct _person* p) {
-	if (p == NULL) {
-		return;
-	}
-	printf("이름 : %s\n", p->name);
-	printf("나이 : %d\n", p->age);
-	printPerson2(p->next);
-}
+typedef union _number {
+	int a;
+	double b;
+} number_t;
+
+//void printPerson2(struct _person* p) {
+//	if (p == NULL) {
+//		return;
+//	}
+//	printf("이름 : %s\n", p->name);
+//	printf("나이 : %d\n", p->age);
+//	printPerson2(p->next);
+//}
 
 struct A {
 	char c;
@@ -486,6 +494,46 @@ struct B {
 	short s;
 	int i;
 };
+
+typedef struct node node_t;
+
+struct node{
+	int data;
+	node_t* next;
+} ;
+
+//정수값을 가지는 노드를 생성하여 반환하는 함수
+node_t* makeNode(int data) {
+	node_t* node = (node_t*)(malloc(sizeof(node_t)));
+	if (node == NULL) {
+		return NULL;
+	}
+	node->data = data;
+	node->next = NULL;
+	return node;
+}
+//노드를 추가하는 함수
+bool_t insertNode(node_t** root, int data) {
+	node_t* node = makeNode(data);
+	if (node == NULL) return FALSE;
+	if (root == NULL) {
+		*root = node;
+	}
+	else {
+		node_t* cur = *root;
+		while (cur->next != NULL) {
+			cur = cur->next;
+		}
+		cur->next = node;
+	}
+}
+
+void printNode(node_t* root) {
+	while (root != NULL) {
+		printf("%d\n", root->data);
+		root = root->next;
+	}
+}
 
 int main(void) {
 	/*char menu[][20] = { "입력하기", "출력하기", "종료하기" };
@@ -511,7 +559,12 @@ int main(void) {
 	printPerson2(&p1);
 	printPerson2(&p2);*/
 
-	printf("%llu\n", sizeof(struct A));
-	printf("%llu\n", sizeof(struct B));
+	/*printf("%llu\n", sizeof(struct A));
+	printf("%llu\n", sizeof(struct B));*/
+
+	node_t* root = NULL;
+	insertNode(&root, 3);
+	insertNode(&root, 5);
+	insertNode(&root, 7);
 	return 0;
 }
