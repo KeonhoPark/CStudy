@@ -1,20 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include<stdio.h>
 #include<stdlib.h>
-int main(void) {
-	
-	int arr[][4] = { {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12} };
-	int(*ptr)[4] = arr;
 
-	int row = (int)(sizeof(arr) / sizeof(arr[0]));
-	int col = (int)(sizeof(arr[0]) / sizeof(arr[0][0]));
+int intCompare(void* p1, void* p2) {
+	p1 = (int*)p1;
+	p2 = (int*)p2;
 
-	for (int i = 0; i < row; i++) {
-		for (int j = 0; j < col; j++) {
-			printf("%d\t", *(*(ptr+i)+j));
-		}
-		printf("\n");
+	if (*p1 > *p2) {
+		return 1;
 	}
+	else if (*p1 == *p2) {
+		return 0;
+	}
+	else {
+
+	}
+
+}
+
+int main(void) {
+	int a = 1;
+	int b = 2;
+	void* ptr1 = &a;
+	void* ptr2 = &b;
+	printf("%d", intCompare(ptr1, ptr2));
 
 	return 0;
 }
