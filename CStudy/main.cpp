@@ -2,28 +2,24 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int intCompare(void* p1, void* p2) {
-	p1 = (int*)p1;
-	p2 = (int*)p2;
-
-	if (*p1 > *p2) {
+int stringCompare(void* s1, void* s2) {
+	if (*(char*)s1 > *(char*)s2) {
 		return 1;
 	}
-	else if (*p1 == *p2) {
+	else if (*(char*)s1 == *(char*)s2) {
 		return 0;
 	}
 	else {
-
+		return -1;
 	}
-
 }
 
 int main(void) {
-	int a = 1;
-	int b = 2;
+	char a[] = "a";
+	char b[] = "b";
 	void* ptr1 = &a;
 	void* ptr2 = &b;
-	printf("%d", intCompare(ptr1, ptr2));
+	printf("%d", stringCompare(ptr1, ptr2));
 
 	return 0;
 }
