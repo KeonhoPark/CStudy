@@ -1,4 +1,21 @@
-#line 1 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\logic.cpp"
+#line 1 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\fileRead.cpp"
+#line 1 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\fileRead.h"
+
+typedef enum { True = 1, False = 0 } bool_t;
+
+
+
+
+void printFile(const char* path);
+typedef struct {
+	char name[20];
+	int age;
+} person_t;
+void writePerson(person_t* person);
+bool_t readPerson(person_t* person);
+#line 15 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\fileRead.h"
+
+#line 2 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\fileRead.cpp"
 #pragma external_header(push)
 #line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdio.h"
 
@@ -10729,9 +10746,9 @@ __declspec(deprecated("This function or variable may be unsafe. Consider using "
 #pragma warning(pop) 
 #line 2449 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdio.h"
 #pragma external_header(pop)
-#line 2 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\logic.cpp"
+#line 3 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\fileRead.cpp"
 #pragma external_header(push)
-#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
+#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
 
 
 
@@ -10745,245 +10762,7 @@ __declspec(deprecated("This function or variable may be unsafe. Consider using "
 
 
 #pragma external_header(push)
-#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_malloc.h"
-
-
-
-
-
-
-
-
-#pragma once
-
-
-
-#pragma warning(push)
-#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
-
-
-__pragma(pack(push, 8)) extern "C" {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 56 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_malloc.h"
-
-     
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _calloc_base(
-      size_t _Count,
-      size_t _Size
-    );
-
-     
-__declspec(dllimport)  __declspec(allocator) __declspec(restrict) 
-void* __cdecl calloc(
-      __declspec(guard(overflow)) size_t _Count,
-      __declspec(guard(overflow)) size_t _Size
-    );
-
- 
-__declspec(dllimport) int __cdecl _callnewh(
-      size_t _Size
-    );
-
-     
-__declspec(dllimport) __declspec(allocator) 
-void* __cdecl _expand(
-                void*  _Block,
-      __declspec(guard(overflow)) size_t _Size
-    );
-
-__declspec(dllimport)
-void __cdecl _free_base(
-        void* _Block
-    );
-
-__declspec(dllimport) 
-void __cdecl free(
-        void* _Block
-    );
-
-     
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _malloc_base(
-      size_t _Size
-    );
-
-     
-__declspec(dllimport) __declspec(allocator)  __declspec(restrict) 
-void* __cdecl malloc(
-      __declspec(guard(overflow)) size_t _Size
-    );
-
- 
-__declspec(dllimport)
-size_t __cdecl _msize_base(
-      void* _Block
-    ) noexcept;
-
- 
-__declspec(dllimport) 
-size_t __cdecl _msize(
-      void* _Block
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _realloc_base(
-         void*  _Block,
-                                 size_t _Size
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict) 
-void* __cdecl realloc(
-        void*  _Block,
-      __declspec(guard(overflow))        size_t _Size
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _recalloc_base(
-        void*  _Block,
-                                size_t _Count,
-                                size_t _Size
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _recalloc(
-        void*  _Block,
-      __declspec(guard(overflow))        size_t _Count,
-      __declspec(guard(overflow))        size_t _Size
-    );
-
-__declspec(dllimport)
-void __cdecl _aligned_free(
-        void* _Block
-    );
-
-     
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _aligned_malloc(
-      __declspec(guard(overflow)) size_t _Size,
-                         size_t _Alignment
-    );
-
-     
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _aligned_offset_malloc(
-      __declspec(guard(overflow)) size_t _Size,
-                         size_t _Alignment,
-                         size_t _Offset
-    );
-
- 
-__declspec(dllimport)
-size_t __cdecl _aligned_msize(
-      void*  _Block,
-               size_t _Alignment,
-               size_t _Offset
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _aligned_offset_realloc(
-        void*  _Block,
-      __declspec(guard(overflow))        size_t _Size,
-                                size_t _Alignment,
-                                size_t _Offset
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _aligned_offset_recalloc(
-        void*  _Block,
-      __declspec(guard(overflow))        size_t _Count,
-      __declspec(guard(overflow))        size_t _Size,
-                                size_t _Alignment,
-                                size_t _Offset
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _aligned_realloc(
-        void*  _Block,
-      __declspec(guard(overflow))        size_t _Size,
-                                size_t _Alignment
-    );
-
-       
-__declspec(dllimport) __declspec(allocator) __declspec(restrict)
-void* __cdecl _aligned_recalloc(
-        void*  _Block,
-      __declspec(guard(overflow))        size_t _Count,
-      __declspec(guard(overflow))        size_t _Size,
-                                size_t _Alignment
-    );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 229 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_malloc.h"
-
-
-
-} __pragma(pack(pop))
-
-#pragma warning(pop) 
-#pragma external_header(pop)
-#line 14 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-#pragma external_header(push)
-#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_search.h"
+#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
 
 
 
@@ -10998,7 +10777,19 @@ void* __cdecl _aligned_recalloc(
 
 
 #pragma external_header(push)
-#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stddef.h"
+#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memcpy_s.h"
+
+
+
+
+
+
+
+#pragma once
+
+
+#pragma external_header(push)
+#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\errno.h"
 
 
 
@@ -11017,972 +10808,6 @@ void* __cdecl _aligned_recalloc(
 
 
 __pragma(pack(push, 8)) extern "C" {
-
-
-
-
-    namespace std
-    {
-        typedef decltype(__nullptr) nullptr_t;
-    }
-
-    using ::std::nullptr_t;
-#line 30 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stddef.h"
-
-
-
-
-
-    __declspec(dllimport) int* __cdecl _errno(void);
-    
-
-    __declspec(dllimport) errno_t __cdecl _set_errno(  int _Value);
-    __declspec(dllimport) errno_t __cdecl _get_errno(  int* _Value);
-
-#line 42 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stddef.h"
-
-
-
-
-
-
-
-
-
-#line 52 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stddef.h"
-    
-#line 54 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stddef.h"
-
-__declspec(dllimport) extern unsigned long  __cdecl __threadid(void);
-
-__declspec(dllimport) extern uintptr_t __cdecl __threadhandle(void);
-
-
-
-} __pragma(pack(pop))
-
-#pragma warning(pop) 
-#line 65 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stddef.h"
-#pragma external_header(pop)
-#line 15 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_search.h"
-
-#pragma warning(push)
-#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
-
-
-__pragma(pack(push, 8)) extern "C" {
-
-
-    typedef int (__cdecl* _CoreCrtSecureSearchSortCompareFunction)(void*, void const*, void const*);
-    typedef int (__cdecl* _CoreCrtNonSecureSearchSortCompareFunction)(void const*, void const*);
-
-
-
-
-     
-    __declspec(dllimport) void* __cdecl bsearch_s(
-                                                        void const* _Key,
-          void const* _Base,
-                                                        rsize_t     _NumOfElements,
-                                                        rsize_t     _SizeOfElements,
-                            _CoreCrtSecureSearchSortCompareFunction _CompareFunction,
-                                                    void*       _Context
-        );
-
-    __declspec(dllimport) void __cdecl qsort_s(
-          void*   _Base,
-                                                             rsize_t _NumOfElements,
-                                                             rsize_t _SizeOfElements,
-                             _CoreCrtSecureSearchSortCompareFunction _CompareFunction,
-                                                         void*   _Context
-        );
-
-#line 48 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_search.h"
-
-
-
- 
-__declspec(dllimport) void* __cdecl bsearch(
-                                                    void const* _Key,
-      void const* _Base,
-                                                    size_t      _NumOfElements,
-                                                    size_t      _SizeOfElements,
-                     _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction
-    );
-
-__declspec(dllimport) void __cdecl qsort(
-      void*  _Base,
-                                                         size_t _NumOfElements,
-                                                         size_t _SizeOfElements,
-                     _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction
-    );
-
- 
-__declspec(dllimport) void* __cdecl _lfind_s(
-                                                       void const*   _Key,
-      void const*   _Base,
-                                                    unsigned int* _NumOfElements,
-                                                       size_t        _SizeOfElements,
-                             _CoreCrtSecureSearchSortCompareFunction _CompareFunction,
-                                                       void*         _Context
-    );
-
- 
-__declspec(dllimport) void* __cdecl _lfind(
-                                                       void const*   _Key,
-      void const*   _Base,
-                                                    unsigned int* _NumOfElements,
-                                                       unsigned int  _SizeOfElements,
-                          _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction
-    );
-
- 
-__declspec(dllimport) void* __cdecl _lsearch_s(
-                                                             void const*   _Key,
-      void*         _Base,
-                                                          unsigned int* _NumOfElements,
-                                                             size_t        _SizeOfElements,
-                                   _CoreCrtSecureSearchSortCompareFunction _CompareFunction,
-                                                             void*         _Context
-    );
-
- 
-__declspec(dllimport) void* __cdecl _lsearch(
-                                                             void const*   _Key,
-      void*         _Base,
-                                                          unsigned int* _NumOfElements,
-                                                             unsigned int  _SizeOfElements,
-                                _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction
-    );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 189 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_search.h"
-
-
-
-
-
-      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_lfind" ". See online help for details."))
-    __declspec(dllimport) void* __cdecl lfind(
-                                                           void const*   _Key,
-          void const*   _Base,
-                                                        unsigned int* _NumOfElements,
-                                                           unsigned int  _SizeOfElements,
-                              _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction
-        );
-
-      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_lsearch" ". See online help for details."))
-    __declspec(dllimport) void* __cdecl lsearch(
-                                                                void const*   _Key,
-          void*         _Base,
-                                                             unsigned int* _NumOfElements,
-                                                                unsigned int  _SizeOfElements,
-                                   _CoreCrtNonSecureSearchSortCompareFunction _CompareFunction
-        );
-
-#line 213 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_search.h"
-
-
-
-} __pragma(pack(pop))
-
-#pragma warning(pop) 
-#pragma external_header(pop)
-#line 15 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-#pragma external_header(push)
-#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-
-
-
-
-
-
-
-#pragma once
-
-
-
-#pragma warning(push)
-#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
-
-
-__pragma(pack(push, 8)) extern "C" {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-    
-    __declspec(dllimport) errno_t __cdecl _itow_s(
-                                  int      _Value,
-          wchar_t* _Buffer,
-                                  size_t   _BufferCount,
-                                  int      _Radix
-        );
-
-    extern "C++" { template <size_t _Size> inline errno_t __cdecl _itow_s(  int _Value, wchar_t (&_Buffer)[_Size],   int _Radix) throw() { return _itow_s(_Value, _Buffer, _Size, _Radix); } }
-#line 67 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_itow_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _itow( int _Value,   wchar_t *_Buffer,  int _Radix);
-#line 74 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-     
-    
-    __declspec(dllimport) errno_t __cdecl _ltow_s(
-                                  long     _Value,
-          wchar_t* _Buffer,
-                                  size_t   _BufferCount,
-                                  int      _Radix
-        );
-
-    extern "C++" { template <size_t _Size> inline errno_t __cdecl _ltow_s(  long _Value, wchar_t (&_Buffer)[_Size],   int _Radix) throw() { return _ltow_s(_Value, _Buffer, _Size, _Radix); } }
-#line 90 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ltow_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _ltow( long _Value,   wchar_t *_Buffer,  int _Radix);
-#line 97 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-    
-    __declspec(dllimport) errno_t __cdecl _ultow_s(
-                                  unsigned long _Value,
-          wchar_t*      _Buffer,
-                                  size_t        _BufferCount,
-                                  int           _Radix
-        );
-
-    extern "C++" { template <size_t _Size> inline errno_t __cdecl _ultow_s(  unsigned long _Value, wchar_t (&_Buffer)[_Size],   int _Radix) throw() { return _ultow_s(_Value, _Buffer, _Size, _Radix); } }
-#line 112 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ultow_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _ultow( unsigned long _Value,   wchar_t *_Buffer,  int _Radix);
-#line 119 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-     
-    __declspec(dllimport) double __cdecl wcstod(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr
-        );
-
-     
-    __declspec(dllimport) double __cdecl _wcstod_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) long __cdecl wcstol(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix
-        );
-
-     
-    __declspec(dllimport) long __cdecl _wcstol_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) long long __cdecl wcstoll(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix
-        );
-
-     
-    __declspec(dllimport) long long __cdecl _wcstoll_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) unsigned long __cdecl wcstoul(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix
-        );
-
-     
-    __declspec(dllimport) unsigned long __cdecl _wcstoul_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) unsigned long long __cdecl wcstoull(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix
-        );
-
-     
-    __declspec(dllimport) unsigned long long __cdecl _wcstoull_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) long double __cdecl wcstold(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr
-        );
-
-     
-    __declspec(dllimport) long double __cdecl _wcstold_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) float __cdecl wcstof(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr
-        );
-
-     
-    __declspec(dllimport) float __cdecl _wcstof_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) double __cdecl _wtof(
-          wchar_t const* _String
-        );
-
-     
-    __declspec(dllimport) double __cdecl _wtof_l(
-            wchar_t const* _String,
-          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) int __cdecl _wtoi(
-          wchar_t const* _String
-        );
-
-     
-    __declspec(dllimport) int __cdecl _wtoi_l(
-            wchar_t const* _String,
-          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) long __cdecl _wtol(
-          wchar_t const* _String
-        );
-
-     
-    __declspec(dllimport) long __cdecl _wtol_l(
-            wchar_t const* _String,
-          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) long long __cdecl _wtoll(
-          wchar_t const* _String
-        );
-
-     
-    __declspec(dllimport) long long __cdecl _wtoll_l(
-            wchar_t const* _String,
-          _locale_t      _Locale
-        );
-
-    
-    __declspec(dllimport) errno_t __cdecl _i64tow_s(
-                                  __int64  _Value,
-          wchar_t* _Buffer,
-                                  size_t   _BufferCount,
-                                  int      _Radix
-        );
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_i64tow_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) wchar_t* __cdecl _i64tow(
-                            __int64  _Value,
-            wchar_t* _Buffer,
-                            int      _Radix
-        );
-
-    
-    __declspec(dllimport) errno_t __cdecl _ui64tow_s(
-                                  unsigned __int64 _Value,
-          wchar_t*         _Buffer,
-                                  size_t           _BufferCount,
-                                  int              _Radix
-        );
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ui64tow_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) wchar_t* __cdecl _ui64tow(
-                            unsigned __int64 _Value,
-            wchar_t*         _Buffer,
-                            int              _Radix
-        );
-
-     
-    __declspec(dllimport) __int64 __cdecl _wtoi64(
-          wchar_t const* _String
-        );
-
-     
-    __declspec(dllimport) __int64 __cdecl _wtoi64_l(
-            wchar_t const* _String,
-          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) __int64 __cdecl _wcstoi64(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix
-        );
-
-     
-    __declspec(dllimport) __int64 __cdecl _wcstoi64_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix,
-                          _locale_t      _Locale
-        );
-
-     
-    __declspec(dllimport) unsigned __int64 __cdecl _wcstoui64(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix
-        );
-
-     
-    __declspec(dllimport) unsigned __int64 __cdecl _wcstoui64_l(
-                            wchar_t const* _String,
-            wchar_t**      _EndPtr,
-                              int            _Radix,
-                          _locale_t      _Locale
-        );
-
-    
-    
-
-     
-     
-    __declspec(dllimport) __declspec(allocator) wchar_t* __cdecl _wfullpath(
-          wchar_t*       _Buffer,
-                                    wchar_t const* _Path,
-                                      size_t         _BufferCount
-        );
-
-    
-
-    
-    __declspec(dllimport) errno_t __cdecl _wmakepath_s(
-          wchar_t*       _Buffer,
-                                  size_t         _BufferCount,
-                            wchar_t const* _Drive,
-                            wchar_t const* _Dir,
-                            wchar_t const* _Filename,
-                            wchar_t const* _Ext
-        );
-
-    extern "C++" { template <size_t _Size> inline errno_t __cdecl _wmakepath_s(wchar_t (&_Buffer)[_Size],   wchar_t const* _Drive,   wchar_t const* _Dir,   wchar_t const* _Filename,   wchar_t const* _Ext) throw() { return _wmakepath_s(_Buffer, _Size, _Drive, _Dir, _Filename, _Ext); } }
-#line 365 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wmakepath_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) void __cdecl _wmakepath(  wchar_t *_Buffer,  wchar_t const* _Drive,  wchar_t const* _Dir,  wchar_t const* _Filename,  wchar_t const* _Ext);
-#line 374 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-    __declspec(dllimport) void __cdecl _wperror(
-          wchar_t const* _ErrorMessage
-        );
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_wsplitpath_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) void __cdecl _wsplitpath(
-                            wchar_t const* _FullPath,
-            wchar_t*       _Drive,
-            wchar_t*       _Dir,
-            wchar_t*       _Filename,
-            wchar_t*       _Ext
-        );
-
-    __declspec(dllimport) errno_t __cdecl _wsplitpath_s(
-                                      wchar_t const* _FullPath,
-             wchar_t*       _Drive,
-                                        size_t         _DriveCount,
-               wchar_t*       _Dir,
-                                        size_t         _DirCount,
-          wchar_t*       _Filename,
-                                        size_t         _FilenameCount,
-               wchar_t*       _Ext,
-                                        size_t         _ExtCount
-        );
-
-    extern "C++" { template <size_t _DriveSize, size_t _DirSize, size_t _NameSize, size_t _ExtSize> inline errno_t __cdecl _wsplitpath_s(   wchar_t const* _Path,   wchar_t (&_Drive)[_DriveSize],   wchar_t (&_Dir)[_DirSize],   wchar_t (&_Name)[_NameSize],   wchar_t (&_Ext)[_ExtSize] ) throw() { return _wsplitpath_s(_Path, _Drive, _DriveSize, _Dir, _DirSize, _Name, _NameSize, _Ext, _ExtSize); } }
-#line 404 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-        
-        
-
-        
-        __declspec(dllimport) errno_t __cdecl _wdupenv_s(
-                wchar_t**      _Buffer,
-                                                                                size_t*        _BufferCount,
-                                                                                   wchar_t const* _VarName
-            );
-
-        
-
-          __declspec(deprecated("This function or variable may be unsafe. Consider using " "_wdupenv_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-        __declspec(dllimport) wchar_t* __cdecl _wgetenv(
-              wchar_t const* _VarName
-            );
-
-         
-        
-        __declspec(dllimport) errno_t __cdecl _wgetenv_s(
-                                         size_t*        _RequiredCount,
-              wchar_t*       _Buffer,
-                                          size_t         _BufferCount,
-                                        wchar_t const* _VarName
-            );
-
-        extern "C++" { template <size_t _Size> inline   errno_t __cdecl _wgetenv_s(  size_t* _RequiredCount, wchar_t (&_Buffer)[_Size],   wchar_t const* _VarName) throw() { return _wgetenv_s(_RequiredCount, _Buffer, _Size, _VarName); } }
-#line 438 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-         
-        __declspec(dllimport) int __cdecl _wputenv(
-              wchar_t const* _EnvString
-            );
-
-        
-        __declspec(dllimport) errno_t __cdecl _wputenv_s(
-              wchar_t const* _Name,
-              wchar_t const* _Value
-            );
-
-        __declspec(dllimport) errno_t __cdecl _wsearchenv_s(
-                                    wchar_t const* _Filename,
-                                    wchar_t const* _VarName,
-              wchar_t*       _Buffer,
-                                      size_t         _BufferCount
-            );
-
-        extern "C++" { template <size_t _Size> inline errno_t __cdecl _wsearchenv_s(  wchar_t const* _Filename,   wchar_t const* _VarName, wchar_t (&_ResultPath)[_Size]) throw() { return _wsearchenv_s(_Filename, _VarName, _ResultPath, _Size); } }
-#line 463 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-        __declspec(deprecated("This function or variable may be unsafe. Consider using " "_wsearchenv_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) void __cdecl _wsearchenv( wchar_t const* _Filename,  wchar_t const* _VarName,   wchar_t *_ResultPath);
-#line 470 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-        __declspec(dllimport) int __cdecl _wsystem(
-              wchar_t const* _Command
-            );
-
-#line 476 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstdlib.h"
-
-
-
-} __pragma(pack(pop))
-
-#pragma warning(pop) 
-#pragma external_header(pop)
-#line 16 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-#pragma external_header(push)
-#line 1 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\limits.h"
-
-
-
-
-
-
-
-#pragma once
-
-
-
-
-#pragma warning(push)
-#pragma warning(disable:   4514 4820 )
-
-__pragma(pack(push, 8)) extern "C" {
-
-
-
-
-
-
-
-    
-    
-
-
-
-#line 30 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\limits.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-        
-    
-
-#line 68 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\limits.h"
-#line 69 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\limits.h"
-
-
-    
-        
-    #line 74 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\limits.h"
-#line 75 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\limits.h"
-
-} __pragma(pack(pop))
-
-#pragma warning(pop) 
-#pragma external_header(pop)
-#line 17 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-#pragma warning(push)
-#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
-
-
-__pragma(pack(push, 8)) extern "C" {
-
-
-
-
-    
-#line 29 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-__declspec(dllimport) void __cdecl _swab(
-        char* _Buf1,
-        char* _Buf2,
-                                                                  int   _SizeInBytes
-    );
-
-
-
-
-
-
-
-
-
-
-
-
-
-    __declspec(dllimport) __declspec(noreturn) void __cdecl exit(  int _Code);
-    __declspec(dllimport) __declspec(noreturn) void __cdecl _exit(  int _Code);
-    __declspec(dllimport) __declspec(noreturn) void __cdecl _Exit(  int _Code);
-    __declspec(dllimport) __declspec(noreturn) void __cdecl quick_exit(  int _Code);
-    __declspec(dllimport) __declspec(noreturn) void __cdecl abort(void);
-#line 62 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-__declspec(dllimport) unsigned int __cdecl _set_abort_behavior(
-      unsigned int _Flags,
-      unsigned int _Mask
-    );
-
-
-
-
-    
-
-    typedef int (__cdecl* _onexit_t)(void);
-    
-
-
-#line 82 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-    
-    
-#line 87 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    int       __cdecl atexit(void (__cdecl*)(void));
-    _onexit_t __cdecl _onexit(  _onexit_t _Func);
-#line 147 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-int __cdecl at_quick_exit(void (__cdecl*)(void));
-
-
-
-
-
-
-
-
-
-    
-    typedef void (__cdecl* _purecall_handler)(void);
-
-    
-    typedef void (__cdecl* _invalid_parameter_handler)(
-        wchar_t const*,
-        wchar_t const*,
-        wchar_t const*,
-        unsigned int,
-        uintptr_t
-        );
-
-    
-     _purecall_handler __cdecl _set_purecall_handler(
-          _purecall_handler _Handler
-        );
-
-     _purecall_handler __cdecl _get_purecall_handler(void);
-
-    
-    __declspec(dllimport) _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(
-          _invalid_parameter_handler _Handler
-        );
-
-    __declspec(dllimport) _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
-
-    __declspec(dllimport) _invalid_parameter_handler __cdecl _set_thread_local_invalid_parameter_handler(
-          _invalid_parameter_handler _Handler
-        );
-
-    __declspec(dllimport) _invalid_parameter_handler __cdecl _get_thread_local_invalid_parameter_handler(void);
-#line 190 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-
-
-
-#line 203 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
- __declspec(dllimport) int __cdecl _set_error_mode(  int _Mode);
 
 
 
@@ -11998,23 +10823,14 @@ int __cdecl at_quick_exit(void (__cdecl*)(void));
 
     __declspec(dllimport) errno_t __cdecl _set_doserrno(  unsigned long _Value);
     __declspec(dllimport) errno_t __cdecl _get_doserrno(  unsigned long * _Value);
+#line 35 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\errno.h"
 
-    
-    __declspec(dllimport) __declspec(deprecated("This function or variable may be unsafe. Consider using " "strerror" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) char** __cdecl __sys_errlist(void);
-    
 
-    __declspec(dllimport) __declspec(deprecated("This function or variable may be unsafe. Consider using " "strerror" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) int * __cdecl __sys_nerr(void);
-    
 
-    __declspec(dllimport) void __cdecl perror(  char const* _ErrMsg);
-#line 238 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
 
 
 
 
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_get_pgmptr" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char**    __cdecl __p__pgmptr (void);
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_get_wpgmptr" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t** __cdecl __p__wpgmptr(void);
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_get_fmode" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) int*      __cdecl __p__fmode  (void);
 
 
 
@@ -12023,20 +10839,10 @@ __declspec(deprecated("This function or variable may be unsafe. Consider using "
 
 
 
-    
-    
-    
-#line 257 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
 
- 
-__declspec(dllimport) errno_t __cdecl _get_pgmptr (  char**    _Value);
 
- 
-__declspec(dllimport) errno_t __cdecl _get_wpgmptr(  wchar_t** _Value);
 
-__declspec(dllimport) errno_t __cdecl _set_fmode  (               int       _Mode );
 
-__declspec(dllimport) errno_t __cdecl _get_fmode  (              int*      _PMode);
 
 
 
@@ -12045,507 +10851,10 @@ __declspec(dllimport) errno_t __cdecl _get_fmode  (              int*      _PMod
 
 
 
-typedef struct _div_t
-{
-    int quot;
-    int rem;
-} div_t;
 
-typedef struct _ldiv_t
-{
-    long quot;
-    long rem;
-} ldiv_t;
 
-typedef struct _lldiv_t
-{
-    long long quot;
-    long long rem;
-} lldiv_t;
 
-  int       __cdecl abs   (  int       _Number);
-  long      __cdecl labs  (  long      _Number);
-  long long __cdecl llabs (  long long _Number);
-  __int64   __cdecl _abs64(  __int64   _Number);
 
-  unsigned short   __cdecl _byteswap_ushort(  unsigned short   _Number);
-  unsigned long    __cdecl _byteswap_ulong (  unsigned long    _Number);
-  unsigned __int64 __cdecl _byteswap_uint64(  unsigned __int64 _Number);
-
-  __declspec(dllimport) div_t   __cdecl div  (  int       _Numerator,   int       _Denominator);
-  __declspec(dllimport) ldiv_t  __cdecl ldiv (  long      _Numerator,   long      _Denominator);
-  __declspec(dllimport) lldiv_t __cdecl lldiv(  long long _Numerator,   long long _Denominator);
-
-
-
-#pragma warning(push)
-#pragma warning(disable: 6540)
-
-unsigned int __cdecl _rotl(
-      unsigned int _Value,
-      int          _Shift
-    );
-
- 
-unsigned long __cdecl _lrotl(
-      unsigned long _Value,
-      int           _Shift
-    );
-
-unsigned __int64 __cdecl _rotl64(
-      unsigned __int64 _Value,
-      int              _Shift
-    );
-
-unsigned int __cdecl _rotr(
-      unsigned int _Value,
-      int          _Shift
-    );
-
- 
-unsigned long __cdecl _lrotr(
-      unsigned long _Value,
-      int           _Shift
-    );
-
-unsigned __int64 __cdecl _rotr64(
-      unsigned __int64 _Value,
-      int              _Shift
-    );
-
-#pragma warning(pop)
-
-
-
-
-
-
-__declspec(dllimport) void __cdecl srand(  unsigned int _Seed);
-
-  __declspec(dllimport) int __cdecl rand(void);
-
-
-
-#line 357 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-extern "C++"
-{
-    inline long abs(long const _X) throw()
-    {
-        return labs(_X);
-    }
-
-    inline long long abs(long long const _X) throw()
-    {
-        return llabs(_X);
-    }
-
-    inline ldiv_t div(long const _A1, long const _A2) throw()
-    {
-        return ldiv(_A1, _A2);
-    }
-
-    inline lldiv_t div(long long const _A1, long long const _A2) throw()
-    {
-        return lldiv(_A1, _A2);
-    }
-}
-#line 384 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-
-    #pragma pack(push, 4)
-    typedef struct
-    {
-        unsigned char ld[10];
-    } _LDOUBLE;
-    #pragma pack(pop)
-
-    
-
-
-
-
-
-
-
-
-
-
-
-#line 414 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-typedef struct
-{
-    double x;
-} _CRT_DOUBLE;
-
-typedef struct
-{
-    float f;
-} _CRT_FLOAT;
-
-
-
-
-
-typedef struct
-{
-    long double x;
-} _LONGDOUBLE;
-
-
-
-#pragma pack(push, 4)
-typedef struct
-{
-    unsigned char ld12[12];
-} _LDBL12;
-#pragma pack(pop)
-
-
-
-
-
-
-
-
-                     __declspec(dllimport) double    __cdecl atof   (  char const* _String);
-   __declspec(dllimport) int       __cdecl atoi   (  char const* _String);
-                     __declspec(dllimport) long      __cdecl atol   (  char const* _String);
-                     __declspec(dllimport) long long __cdecl atoll  (  char const* _String);
-                     __declspec(dllimport) __int64   __cdecl _atoi64(  char const* _String);
-
-  __declspec(dllimport) double    __cdecl _atof_l  (  char const* _String,   _locale_t _Locale);
-  __declspec(dllimport) int       __cdecl _atoi_l  (  char const* _String,   _locale_t _Locale);
-  __declspec(dllimport) long      __cdecl _atol_l  (  char const* _String,   _locale_t _Locale);
-  __declspec(dllimport) long long __cdecl _atoll_l (  char const* _String,   _locale_t _Locale);
-  __declspec(dllimport) __int64   __cdecl _atoi64_l(  char const* _String,   _locale_t _Locale);
-
-  __declspec(dllimport) int __cdecl _atoflt (  _CRT_FLOAT*  _Result,   char const* _String);
-  __declspec(dllimport) int __cdecl _atodbl (  _CRT_DOUBLE* _Result,   char*       _String);
-  __declspec(dllimport) int __cdecl _atoldbl(  _LDOUBLE*    _Result,   char*       _String);
-
- 
-__declspec(dllimport) int __cdecl _atoflt_l(
-         _CRT_FLOAT* _Result,
-        char const* _String,
-      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) int __cdecl _atodbl_l(
-         _CRT_DOUBLE* _Result,
-        char*        _String,
-      _locale_t    _Locale
-    );
-
-
- 
-__declspec(dllimport) int __cdecl _atoldbl_l(
-         _LDOUBLE* _Result,
-        char*     _String,
-      _locale_t _Locale
-    );
-
- 
-__declspec(dllimport) float __cdecl strtof(
-                        char const* _String,
-        char**      _EndPtr
-    );
-
- 
-__declspec(dllimport) float __cdecl _strtof_l(
-                        char const* _String,
-        char**      _EndPtr,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) double __cdecl strtod(
-                        char const* _String,
-        char**      _EndPtr
-    );
-
- 
-__declspec(dllimport) double __cdecl _strtod_l(
-                        char const* _String,
-        char**      _EndPtr,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) long double __cdecl strtold(
-                        char const* _String,
-        char**      _EndPtr
-    );
-
- 
-__declspec(dllimport) long double __cdecl _strtold_l(
-                        char const* _String,
-        char**      _EndPtr,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) long __cdecl strtol(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix
-    );
-
- 
-__declspec(dllimport) long __cdecl _strtol_l(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) long long __cdecl strtoll(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix
-    );
-
- 
-__declspec(dllimport) long long __cdecl _strtoll_l(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) unsigned long __cdecl strtoul(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix
-    );
-
- 
-__declspec(dllimport) unsigned long __cdecl _strtoul_l(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) unsigned long long __cdecl strtoull(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix
-    );
-
- 
-__declspec(dllimport) unsigned long long __cdecl _strtoull_l(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) __int64 __cdecl _strtoi64(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix
-    );
-
- 
-__declspec(dllimport) __int64 __cdecl _strtoi64_l(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix,
-                      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) unsigned __int64 __cdecl _strtoui64(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix
-    );
-
- 
-__declspec(dllimport) unsigned __int64 __cdecl _strtoui64_l(
-                        char const* _String,
-        char**      _EndPtr,
-                          int         _Radix,
-                      _locale_t   _Locale
-    );
-
-
-
-
-
-
-
-
- 
-
-__declspec(dllimport) errno_t __cdecl _itoa_s(
-                              int    _Value,
-      char*  _Buffer,
-                              size_t _BufferCount,
-                              int    _Radix
-    );
-
-extern "C++" { template <size_t _Size> inline   errno_t __cdecl _itoa_s(  int _Value, char (&_Buffer)[_Size],   int _Radix) throw() { return _itoa_s(_Value, _Buffer, _Size, _Radix); } }
-#line 640 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_itoa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _itoa( int _Value,   char *_Buffer,  int _Radix);
-#line 647 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
- 
-
-__declspec(dllimport) errno_t __cdecl _ltoa_s(
-                              long   _Value,
-      char*  _Buffer,
-                              size_t _BufferCount,
-                              int    _Radix
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl _ltoa_s(  long _Value, char (&_Buffer)[_Size],   int _Radix) throw() { return _ltoa_s(_Value, _Buffer, _Size, _Radix); } }
-#line 663 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_ltoa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _ltoa( long _Value,   char *_Buffer,  int _Radix);
-#line 670 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
- 
-
-__declspec(dllimport) errno_t __cdecl _ultoa_s(
-                              unsigned long _Value,
-      char*         _Buffer,
-                              size_t        _BufferCount,
-                              int           _Radix
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl _ultoa_s(  unsigned long _Value, char (&_Buffer)[_Size],   int _Radix) throw() { return _ultoa_s(_Value, _Buffer, _Size, _Radix); } }
-#line 686 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_ultoa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _ultoa( unsigned long _Value,   char *_Buffer,  int _Radix);
-#line 693 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
- 
-
-__declspec(dllimport) errno_t __cdecl _i64toa_s(
-                              __int64 _Value,
-      char*   _Buffer,
-                              size_t  _BufferCount,
-                              int     _Radix
-    );
-
- 
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_i64toa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) char* __cdecl _i64toa(
-                        __int64 _Value,
-        char*   _Buffer,
-                        int     _Radix
-    );
-
- 
-
-__declspec(dllimport) errno_t __cdecl _ui64toa_s(
-                              unsigned __int64 _Value,
-      char*            _Buffer,
-                              size_t           _BufferCount,
-                              int              _Radix
-    );
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_ui64toa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) char* __cdecl _ui64toa(
-                        unsigned __int64 _Value,
-        char*            _Buffer,
-                        int              _Radix
-    );
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-__declspec(dllimport) errno_t __cdecl _ecvt_s(
-      char* _Buffer,
-       size_t                       _BufferCount,
-       double                       _Value,
-       int                          _DigitCount,
-      int*                         _PtDec,
-      int*                         _PtSign
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl _ecvt_s(char (&_Buffer)[_Size],   double _Value,   int _DigitCount,   int* _PtDec,   int* _PtSign) throw() { return _ecvt_s(_Buffer, _Size, _Value, _DigitCount, _PtDec, _PtSign); } }
-#line 758 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-  __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ecvt_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) char* __cdecl _ecvt(
-       double _Value,
-       int    _DigitCount,
-      int*   _PtDec,
-      int*   _PtSign
-    );
-
- 
-
-__declspec(dllimport) errno_t __cdecl _fcvt_s(
-      char*  _Buffer,
-                              size_t _BufferCount,
-                              double _Value,
-                              int    _FractionalDigitCount,
-                             int*   _PtDec,
-                             int*   _PtSign
-    );
-
-extern "C++" { template <size_t _Size> inline   errno_t __cdecl _fcvt_s(char (&_Buffer)[_Size],   double _Value,   int _FractionalDigitCount,   int* _PtDec,   int* _PtSign) throw() { return _fcvt_s(_Buffer, _Size, _Value, _FractionalDigitCount, _PtDec, _PtSign); } }
-#line 787 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
- 
-  __declspec(deprecated("This function or variable may be unsafe. Consider using " "_fcvt_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) char* __cdecl _fcvt(
-       double _Value,
-       int    _FractionalDigitCount,
-      int*   _PtDec,
-      int*   _PtSign
-    );
-
- 
-__declspec(dllimport) errno_t __cdecl _gcvt_s(
-      char*  _Buffer,
-                              size_t _BufferCount,
-                              double _Value,
-                              int    _DigitCount
-    );
-
-extern "C++" { template <size_t _Size> inline   errno_t __cdecl _gcvt_s(char (&_Buffer)[_Size],   double _Value,   int _DigitCount) throw() { return _gcvt_s(_Buffer, _Size, _Value, _DigitCount); } }
-#line 812 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_gcvt_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) char* __cdecl _gcvt(
-                        double _Value,
-                        int    _DigitCount,
-        char*  _Buffer
-    );
 
 
 
@@ -12558,268 +10867,11 @@ __declspec(dllimport) char* __cdecl _gcvt(
 
 
     
-
-#line 833 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-        
-    #line 835 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
     
-
-
-        
-    #line 841 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-     
-    __declspec(dllimport) int __cdecl ___mb_cur_max_func(void);
-
-     
-    __declspec(dllimport) int __cdecl ___mb_cur_max_l_func(_locale_t _Locale);
-#line 848 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
- 
-__declspec(dllimport) int __cdecl mblen(
-        char const* _Ch,
-                                             size_t      _MaxCount
-    );
-
- 
-__declspec(dllimport) int __cdecl _mblen_l(
-        char const* _Ch,
-                                             size_t      _MaxCount,
-                                         _locale_t   _Locale
-    );
-
- 
- 
-__declspec(dllimport) size_t __cdecl _mbstrlen(
-      char const* _String
-    );
-
- 
- 
-__declspec(dllimport) size_t __cdecl _mbstrlen_l(
-        char const* _String,
-      _locale_t   _Locale
-    );
-
- 
- 
-__declspec(dllimport) size_t __cdecl _mbstrnlen(
-      char const* _String,
-        size_t      _MaxCount
-    );
-
- 
- 
-__declspec(dllimport) size_t __cdecl _mbstrnlen_l(
-        char const* _String,
-          size_t      _MaxCount,
-      _locale_t   _Locale
-    );
-
- 
-__declspec(dllimport) int __cdecl mbtowc(
-                      wchar_t*    _DstCh,
-      char const* _SrcCh,
-                                      size_t      _SrcSizeInBytes
-    );
-
- 
-__declspec(dllimport) int __cdecl _mbtowc_l(
-                      wchar_t*    _DstCh,
-      char const* _SrcCh,
-                                      size_t      _SrcSizeInBytes,
-                                  _locale_t   _Locale
-    );
-
-
-__declspec(dllimport) errno_t __cdecl mbstowcs_s(
-                                                      size_t*     _PtNumOfCharConverted,
-      wchar_t*    _DstBuf,
-                                                           size_t      _SizeInWords,
-                                     char const* _SrcBuf,
-                                                           size_t      _MaxCount
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl mbstowcs_s(  size_t* _PtNumOfCharConverted,   wchar_t (&_Dest)[_Size],   char const* _Source,   size_t _MaxCount) throw() { return mbstowcs_s(_PtNumOfCharConverted, _Dest, _Size, _Source, _MaxCount); } }
-#line 923 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "mbstowcs_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) size_t __cdecl mbstowcs( wchar_t *_Dest,  char const* _Source,  size_t _MaxCount);
-#line 930 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-__declspec(dllimport) errno_t __cdecl _mbstowcs_s_l(
-                                                      size_t*     _PtNumOfCharConverted,
-      wchar_t*    _DstBuf,
-                                                           size_t      _SizeInWords,
-                                     char const* _SrcBuf,
-                                                           size_t      _MaxCount,
-                                                       _locale_t   _Locale
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl _mbstowcs_s_l(  size_t* _PtNumOfCharConverted,   wchar_t (&_Dest)[_Size],   char const* _Source,   size_t _MaxCount,   _locale_t _Locale) throw() { return _mbstowcs_s_l(_PtNumOfCharConverted, _Dest, _Size, _Source, _MaxCount, _Locale); } }
-#line 949 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_mbstowcs_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) size_t __cdecl _mbstowcs_l(  wchar_t *_Dest,   char const* _Source,   size_t _MaxCount,   _locale_t _Locale);
-#line 958 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "wctomb_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) int __cdecl wctomb(
-      char*   _MbCh,
-                                wchar_t _WCh
-    );
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wctomb_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) int __cdecl _wctomb_l(
-        char*     _MbCh,
-                          wchar_t   _WCh,
-                      _locale_t _Locale
-    );
-
-
-
     
-    __declspec(dllimport) errno_t __cdecl wctomb_s(
-                                                         int*    _SizeConverted,
-          char*   _MbCh,
-                                                              rsize_t _SizeInBytes,
-                                                              wchar_t _WCh
-        );
-
-#line 986 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-__declspec(dllimport) errno_t __cdecl _wctomb_s_l(
-                             int*     _SizeConverted,
-      char*     _MbCh,
-                                  size_t    _SizeInBytes,
-                                  wchar_t   _WCh,
-                              _locale_t _Locale);
-
-
-__declspec(dllimport) errno_t __cdecl wcstombs_s(
-                                                               size_t*        _PtNumOfCharConverted,
-      char*          _Dst,
-                                                                    size_t         _DstSizeInBytes,
-                                                                  wchar_t const* _Src,
-                                                                    size_t         _MaxCountInBytes
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl wcstombs_s(  size_t* _PtNumOfCharConverted,   char (&_Dest)[_Size],   wchar_t const* _Source,   size_t _MaxCount) throw() { return wcstombs_s(_PtNumOfCharConverted, _Dest, _Size, _Source, _MaxCount); } }
-#line 1011 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "wcstombs_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) size_t __cdecl wcstombs( char *_Dest,  wchar_t const* _Source,  size_t _MaxCount);
-#line 1018 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-__declspec(dllimport) errno_t __cdecl _wcstombs_s_l(
-                                                               size_t*        _PtNumOfCharConverted,
-      char*          _Dst,
-                                                                    size_t         _DstSizeInBytes,
-                                                                  wchar_t const* _Src,
-                                                                    size_t         _MaxCountInBytes,
-                                                                _locale_t      _Locale
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcstombs_s_l(  size_t* _PtNumOfCharConverted,   char (&_Dest)[_Size],   wchar_t const* _Source,   size_t _MaxCount,   _locale_t _Locale) throw() { return _wcstombs_s_l(_PtNumOfCharConverted, _Dest, _Size, _Source, _MaxCount, _Locale); } }
-#line 1037 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcstombs_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) size_t __cdecl _wcstombs_l(  char *_Dest,   wchar_t const* _Source,   size_t _MaxCount,   _locale_t _Locale);
-#line 1046 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-__declspec(dllimport) __declspec(allocator) char* __cdecl _fullpath(
-      char*       _Buffer,
-                                char const* _Path,
-                                  size_t      _BufferCount
-    );
-
-
-
-
-__declspec(dllimport) errno_t __cdecl _makepath_s(
-      char*       _Buffer,
-                              size_t      _BufferCount,
-                        char const* _Drive,
-                        char const* _Dir,
-                        char const* _Filename,
-                        char const* _Ext
-    );
-
-extern "C++" { template <size_t _Size> inline errno_t __cdecl _makepath_s(char (&_Buffer)[_Size],   char const* _Drive,   char const* _Dir,   char const* _Filename,   char const* _Ext) throw() { return _makepath_s(_Buffer, _Size, _Drive, _Dir, _Filename, _Ext); } }
-#line 1094 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_makepath_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) void __cdecl _makepath(  char *_Buffer,  char const* _Drive,  char const* _Dir,  char const* _Filename,  char const* _Ext);
-#line 1103 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(deprecated("This function or variable may be unsafe. Consider using " "_splitpath_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-__declspec(dllimport) void __cdecl _splitpath(
-                        char const* _FullPath,
-        char*       _Drive,
-        char*       _Dir,
-        char*       _Filename,
-        char*       _Ext
-    );
-
-
-__declspec(dllimport) errno_t __cdecl _splitpath_s(
-                                  char const* _FullPath,
-         char*       _Drive,
-                                    size_t      _DriveCount,
-           char*       _Dir,
-                                    size_t      _DirCount,
-      char*       _Filename,
-                                    size_t      _FilenameCount,
-           char*       _Ext,
-                                    size_t      _ExtCount
-    );
-
-extern "C++" { template <size_t _DriveSize, size_t _DirSize, size_t _NameSize, size_t _ExtSize> inline errno_t __cdecl _splitpath_s(   char const* _Dest,   char (&_Drive)[_DriveSize],   char (&_Dir)[_DirSize],   char (&_Name)[_NameSize],   char (&_Ext)[_ExtSize] ) throw() { return _splitpath_s(_Dest, _Drive, _DriveSize, _Dir, _DirSize, _Name, _NameSize, _Ext, _ExtSize); } }
-
-
-
-
- 
-__declspec(dllimport) errno_t __cdecl getenv_s(
-                                 size_t*     _RequiredCount,
-      char*       _Buffer,
-                                  rsize_t     _BufferCount,
-                                char const* _VarName
-    );
-
-#line 1140 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-__declspec(dllimport) int*       __cdecl __p___argc (void);
-__declspec(dllimport) char***    __cdecl __p___argv (void);
-__declspec(dllimport) wchar_t*** __cdecl __p___wargv(void);
+    
+    
+#line 83 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\errno.h"
 
 
 
@@ -12829,225 +10881,1455 @@ __declspec(dllimport) wchar_t*** __cdecl __p___wargv(void);
     
     
     
-#line 1157 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-__declspec(dllimport) char***    __cdecl __p__environ (void);
-__declspec(dllimport) wchar_t*** __cdecl __p__wenviron(void);
-
-
-    
-#line 1164 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
     
     
-#line 1174 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-      __declspec(deprecated("This function or variable may be unsafe. Consider using " "_dupenv_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl getenv(
-          char const* _VarName
-        );
-
-    extern "C++" { template <size_t _Size> inline errno_t __cdecl getenv_s(  size_t* _RequiredCount, char (&_Buffer)[_Size],   char const* _VarName) throw() { return getenv_s(_RequiredCount, _Buffer, _Size, _VarName); } }
-#line 1194 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-    
-
-
-#line 1199 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-    
-    __declspec(dllimport) errno_t __cdecl _dupenv_s(
-            char**      _Buffer,
-                                                                            size_t*     _BufferCount,
-                                                                               char const* _VarName
-        );
-
-    
-
-#line 1210 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-    __declspec(dllimport) int __cdecl system(
-          char const* _Command
-        );
-
     
     
-    #pragma warning(push)
-    #pragma warning(disable: 6540)
-
-     
-    __declspec(dllimport) int __cdecl _putenv(
-          char const* _EnvString
-        );
-
-    
-    __declspec(dllimport) errno_t __cdecl _putenv_s(
-          char const* _Name,
-          char const* _Value
-        );
-
-    #pragma warning(pop)
-
-    __declspec(dllimport) errno_t __cdecl _searchenv_s(
-                                char const* _Filename,
-                                char const* _VarName,
-          char*       _Buffer,
-                                  size_t      _BufferCount
-        );
-
-    extern "C++" { template <size_t _Size> inline errno_t __cdecl _searchenv_s(  char const* _Filename,   char const* _VarName, char (&_Buffer)[_Size]) throw() { return _searchenv_s(_Filename, _VarName, _Buffer, _Size); } }
-#line 1246 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-    __declspec(deprecated("This function or variable may be unsafe. Consider using " "_searchenv_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) void __cdecl _searchenv( char const* _Filename,  char const* _VarName,   char *_Buffer);
-#line 1253 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-    
-    __declspec(deprecated("This function or variable has been superceded by newer library " "or operating system functionality. Consider using " "SetErrorMode" " " "instead. See online help for details."))
-    __declspec(dllimport) void __cdecl _seterrormode(
-          int _Mode
-        );
-
-    __declspec(deprecated("This function or variable has been superceded by newer library " "or operating system functionality. Consider using " "Beep" " " "instead. See online help for details."))
-    __declspec(dllimport) void __cdecl _beep(
-          unsigned _Frequency,
-          unsigned _Duration
-        );
-
-    __declspec(deprecated("This function or variable has been superceded by newer library " "or operating system functionality. Consider using " "Sleep" " " "instead. See online help for details."))
-    __declspec(dllimport) void __cdecl _sleep(
-          unsigned long _Duration
-        );
-
-#line 1272 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     
     
-
-    #pragma warning(push)
-    #pragma warning(disable: 4141) 
-
-      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_ecvt" ". See online help for details.")) __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ecvt_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl ecvt(
-           double _Value,
-           int    _DigitCount,
-          int*   _PtDec,
-          int*   _PtSign
-        );
-
-      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_fcvt" ". See online help for details.")) __declspec(deprecated("This function or variable may be unsafe. Consider using " "_fcvt_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl fcvt(
-           double _Value,
-           int    _FractionalDigitCount,
-          int*   _PtDec,
-          int*   _PtSign
-        );
-
-    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_gcvt" ". See online help for details.")) __declspec(deprecated("This function or variable may be unsafe. Consider using " "_fcvt_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl gcvt(
-                            double _Value,
-                            int    _DigitCount,
-            char*  _DstBuf
-        );
-
-    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_itoa" ". See online help for details.")) __declspec(deprecated("This function or variable may be unsafe. Consider using " "_itoa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl itoa(
-                            int   _Value,
-            char* _Buffer,
-                            int   _Radix
-        );
-
-    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_ltoa" ". See online help for details.")) __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ltoa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl ltoa(
-                            long  _Value,
-            char* _Buffer,
-                            int   _Radix
-        );
-
-
-    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_swab" ". See online help for details."))
-    __declspec(dllimport) void __cdecl swab(
-          char* _Buf1,
-          char* _Buf2,
-                                     int   _SizeInBytes
-        );
-
-    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_ultoa" ". See online help for details.")) __declspec(deprecated("This function or variable may be unsafe. Consider using " "_ultoa_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
-    __declspec(dllimport) char* __cdecl ultoa(
-                            unsigned long _Value,
-            char*         _Buffer,
-                            int           _Radix
-        );
-
     
-
-      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_putenv" ". See online help for details."))
-    __declspec(dllimport) int __cdecl putenv(
-          char const* _EnvString
-        );
-
-    #pragma warning(pop)
-
-    _onexit_t __cdecl onexit(  _onexit_t _Func);
-
-#line 1356 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+#line 131 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\errno.h"
 
 
 
 } __pragma(pack(pop))
 
 #pragma warning(pop) 
-#line 1363 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\stdlib.h"
+#line 138 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\errno.h"
 #pragma external_header(pop)
-#line 3 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\logic.cpp"
+#line 12 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memcpy_s.h"
+#pragma external_header(push)
+#line 1 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\vcruntime_string.h"
 
-int* readData(const char* path, int* count) {
-	
-	
-	
-	
 
+
+
+
+
+
+#pragma once
+
+
+
+#pragma warning(push)
+#pragma warning(disable:   4514 4820 )
+
+
+
+__pragma(pack(push, 8)) extern "C" {
+
+
+
+[[nodiscard]]  
+ void const* __cdecl memchr(
+      void const* _Buf,
+                                 int         _Val,
+                                 size_t      _MaxCount
+    );
+
+[[nodiscard]]  
+int __cdecl memcmp(
+      void const* _Buf1,
+      void const* _Buf2,
+                         size_t      _Size
+    );
+
+
+ 
+
+#line 43 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\vcruntime_string.h"
+void* __cdecl memcpy(
+      void* _Dst,
+            void const* _Src,
+                               size_t      _Size
+    );
+
+
+ void* __cdecl memmove(
+      void*       _Dst,
+            void const* _Src,
+                                   size_t      _Size
+    );
+
+ 
+
+#line 63 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\vcruntime_string.h"
+void* __cdecl memset(
+      void*  _Dst,
+                               int    _Val,
+                               size_t _Size
+    );
+
+[[nodiscard]]  
+ char const* __cdecl strchr(
+      char const* _Str,
+        int         _Val
+    );
+
+[[nodiscard]]  
+ char const* __cdecl strrchr(
+      char const* _Str,
+        int         _Ch
+    );
+
+[[nodiscard]]    
+ char const* __cdecl strstr(
+      char const* _Str,
+      char const* _SubStr
+    );
+
+[[nodiscard]]  
+
+ wchar_t const* __cdecl wcschr(
+      wchar_t const* _Str,
+        wchar_t        _Ch
+    );
+
+[[nodiscard]]  
+ wchar_t const* __cdecl wcsrchr(
+      wchar_t const* _Str,
+        wchar_t        _Ch
+    );
+
+[[nodiscard]]    
+
+ wchar_t const* __cdecl wcsstr(
+      wchar_t const* _Str,
+      wchar_t const* _SubStr
+    );
+
+
+
+} __pragma(pack(pop))
+
+#line 112 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\include\\vcruntime_string.h"
+
+#pragma warning(pop) 
+#pragma external_header(pop)
+#line 13 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memcpy_s.h"
+
+#pragma warning(push)
+#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
+
+
+__pragma(pack(push, 8)) extern "C" {
+
+
+    
+#line 23 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memcpy_s.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    
+    static __inline errno_t __cdecl memcpy_s(
+          void*       const _Destination,
+                                                              rsize_t     const _DestinationSize,
+                                 void const* const _Source,
+                                                              rsize_t     const _SourceSize
+        )
+    {
+        if (_SourceSize == 0)
+        {
+            return 0;
+        }
+
+        { int _Expr_val=!!(_Destination != 0); if (!(_Expr_val)) { (*_errno()) = 22; _invalid_parameter_noinfo(); return 22; } };
+        if (_Source == 0 || _DestinationSize < _SourceSize)
+        {
+            memset(_Destination, 0, _DestinationSize);
+
+            { int _Expr_val=!!(_Source != 0); if (!(_Expr_val)) { (*_errno()) = 22; _invalid_parameter_noinfo(); return 22; } };
+            { int _Expr_val=!!(_DestinationSize >= _SourceSize); if (!(_Expr_val)) { (*_errno()) = 34; _invalid_parameter_noinfo(); return 34; } };
+
+            
+            return 22;
+        }
+        memcpy(_Destination, _Source, _SourceSize);
+        return 0;
+    }
+
+    
+    static __inline errno_t __cdecl memmove_s(
+          void*       const _Destination,
+                                                              rsize_t     const _DestinationSize,
+                                 void const* const _Source,
+                                                              rsize_t     const _SourceSize
+        )
+    {
+        if (_SourceSize == 0)
+        {
+            return 0;
+        }
+
+        { int _Expr_val=!!(_Destination != 0); if (!(_Expr_val)) { (*_errno()) = 22; _invalid_parameter_noinfo(); return 22; } };
+        { int _Expr_val=!!(_Source != 0); if (!(_Expr_val)) { (*_errno()) = 22; _invalid_parameter_noinfo(); return 22; } };
+        { int _Expr_val=!!(_DestinationSize >= _SourceSize); if (!(_Expr_val)) { (*_errno()) = 34; _invalid_parameter_noinfo(); return 34; } };
+
+        memmove(_Destination, _Source, _SourceSize);
+        return 0;
+    }
+
+#line 88 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memcpy_s.h"
+
+
+
+
+#pragma warning(pop) 
+} __pragma(pack(pop))
+#pragma external_header(pop)
+#line 15 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+
+#pragma warning(push)
+#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
+
+
+
+
+__pragma(pack(push, 8)) extern "C" {
+
+
+
+ 
+__declspec(dllimport) int __cdecl _memicmp(
+      void const* _Buf1,
+      void const* _Buf2,
+                             size_t      _Size
+    );
+
+ 
+__declspec(dllimport) int __cdecl _memicmp_l(
+      void const* _Buf1,
+      void const* _Buf2,
+                             size_t      _Size,
+                         _locale_t   _Locale
+    );
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+#line 60 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+#line 75 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+#line 77 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+
+
+
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_memccpy" ". See online help for details."))
+    __declspec(dllimport) void* __cdecl memccpy(
+          void*       _Dst,
+            void const* _Src,
+                                   int         _Val,
+                                   size_t      _Size
+        );
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_memicmp" ". See online help for details."))
+    __declspec(dllimport) int __cdecl memicmp(
+          void const* _Buf1,
+          void const* _Buf2,
+                                 size_t      _Size
+        );
+
+#line 98 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+
+
+
+
+    extern "C++"  
+    inline void* __cdecl memchr(
+          void*  _Pv,
+                              int    _C,
+                              size_t _N
+        )
+    {
+        void const* const _Pvc = _Pv;
+        return const_cast<void*>(memchr(_Pvc, _C, _N));
+    }
+
+#line 115 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+
+
+} __pragma(pack(pop))
+
+#line 121 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_memory.h"
+
+#pragma warning(pop) 
+#pragma external_header(pop)
+#line 14 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+#pragma external_header(push)
+#line 1 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+
+
+
+
+
+
+#pragma once
+
+
+
+
+#pragma warning(push)
+#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
+
+
+
+
+__pragma(pack(push, 8)) extern "C" {
+
+
+
+
+
+
+
+
+
+
+    
+    __declspec(dllimport) errno_t __cdecl wcscat_s(
+          wchar_t* _Destination,
+          rsize_t _SizeInWords,
+          wchar_t const* _Source
+        );
+
+    
+    __declspec(dllimport) errno_t __cdecl wcscpy_s(
+          wchar_t* _Destination,
+          rsize_t _SizeInWords,
+          wchar_t const* _Source
+        );
+
+    
+    __declspec(dllimport) errno_t __cdecl wcsncat_s(
+          wchar_t*       _Destination,
+                                     rsize_t        _SizeInWords,
+               wchar_t const* _Source,
+                                     rsize_t        _MaxCount
+        );
+
+    
+    __declspec(dllimport) errno_t __cdecl wcsncpy_s(
+          wchar_t*       _Destination,
+                                  rsize_t        _SizeInWords,
+            wchar_t const* _Source,
+                                  rsize_t        _MaxCount
+        );
+
+     
+    __declspec(dllimport) wchar_t* __cdecl wcstok_s(
+                          wchar_t*       _String,
+                                 wchar_t const* _Delimiter,
+            wchar_t**      _Context
+        );
+
+#line 69 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+
+
+
+
+
+
+
+
+
+#line 81 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+__declspec(dllimport) __declspec(allocator) wchar_t* __cdecl _wcsdup(
+      wchar_t const* _String
+    );
+
+
+
+#line 90 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl wcscat_s(wchar_t (&_Destination)[_Size],   wchar_t const* _Source) throw() { return wcscat_s(_Destination, _Size, _Source); } }
+#line 98 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+    __declspec(deprecated("This function or variable may be unsafe. Consider using " "wcscat_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl wcscat( wchar_t *_Destination,  wchar_t const* _Source);
+#line 105 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+#line 106 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+__declspec(dllimport) int __cdecl wcscmp(
+      wchar_t const* _String1,
+      wchar_t const* _String2
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl wcscpy_s(wchar_t (&_Destination)[_Size],   wchar_t const* _Source) throw() { return wcscpy_s(_Destination, _Size, _Source); } }
+#line 118 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "wcscpy_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl wcscpy( wchar_t *_Destination,  wchar_t const* _Source);
+#line 124 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+__declspec(dllimport) size_t __cdecl wcscspn(
+      wchar_t const* _String,
+      wchar_t const* _Control
+    );
+
+ 
+__declspec(dllimport) size_t __cdecl wcslen(
+      wchar_t const* _String
+    );
+
+ 
+
+#line 141 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+#line 145 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+__declspec(dllimport) size_t __cdecl wcsnlen(
+      wchar_t const* _Source,
+                            size_t         _MaxCount
+    );
+
+
+
+     
+    
+#line 157 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+    
+#line 161 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+    static __inline size_t __cdecl wcsnlen_s(
+          wchar_t const* _Source,
+                                size_t         _MaxCount
+        )
+    {
+        return (_Source == 0) ? 0 : wcsnlen(_Source, _MaxCount);
+    }
+
+#line 170 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl wcsncat_s(  wchar_t (&_Destination)[_Size],   wchar_t const* _Source,   size_t _Count) throw() { return wcsncat_s(_Destination, _Size, _Source, _Count); } }
+#line 177 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "wcsncat_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl wcsncat(  wchar_t *_Destination,   wchar_t const* _Source,   size_t _Count);
+#line 185 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+__declspec(dllimport) int __cdecl wcsncmp(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl wcsncpy_s(wchar_t (&_Destination)[_Size],   wchar_t const* _Source,   size_t _Count) throw() { return wcsncpy_s(_Destination, _Size, _Source, _Count); } }
+#line 199 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "wcsncpy_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl wcsncpy(    wchar_t *_Destination,   wchar_t const* _Source,   size_t _Count);
+#line 207 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+__declspec(dllimport) wchar_t const* __cdecl wcspbrk(
+      wchar_t const* _String,
+      wchar_t const* _Control
+    );
+
+ 
+__declspec(dllimport) size_t __cdecl wcsspn(
+      wchar_t const* _String,
+      wchar_t const* _Control
+    );
+
+  __declspec(deprecated("This function or variable may be unsafe. Consider using " "wcstok_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+__declspec(dllimport) wchar_t* __cdecl wcstok(
+                          wchar_t*       _String,
+                                 wchar_t const* _Delimiter,
+        wchar_t**      _Context
+    );
+
+
+
+    
+
+#line 232 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+        
+
+
+
+    #line 237 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+      __declspec(deprecated("This function or variable may be unsafe. Consider using " "wcstok_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+    static __inline wchar_t* __cdecl _wcstok(
+          wchar_t*       const _String,
+                 wchar_t const* const _Delimiter
+        )
+    {
+        return wcstok(_String, _Delimiter, 0);
+    }
+
+    
+
+#line 250 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+    
+        extern "C++"   __declspec(deprecated("wcstok has been changed to conform with the ISO C standard, " "adding an extra context parameter. To use the legacy Microsoft " "wcstok, define _CRT_NON_CONFORMING_WCSTOK."))
+        inline wchar_t* __cdecl wcstok(
+              wchar_t*       _String,
+                     wchar_t const* _Delimiter
+            ) throw()
+        {
+            return wcstok(_String, _Delimiter, 0);
+        }
+    #line 261 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+#line 263 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+
+ 
+  __declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcserror_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+__declspec(dllimport) wchar_t* __cdecl _wcserror(
+      int _ErrorNumber
+    );
+
+
+__declspec(dllimport) errno_t __cdecl _wcserror_s(
+      wchar_t* _Buffer,
+                                  size_t   _SizeInWords,
+                                  int      _ErrorNumber
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcserror_s(wchar_t (&_Buffer)[_Size],   int _Error) throw() { return _wcserror_s(_Buffer, _Size, _Error); } }
+#line 284 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+ 
+  __declspec(deprecated("This function or variable may be unsafe. Consider using " "__wcserror_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+__declspec(dllimport) wchar_t* __cdecl __wcserror(
+      wchar_t const* _String
+    );
+
+ __declspec(dllimport) errno_t __cdecl __wcserror_s(
+      wchar_t*       _Buffer,
+                                  size_t         _SizeInWords,
+                                wchar_t const* _ErrorMessage
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl __wcserror_s(wchar_t (&_Buffer)[_Size],   wchar_t const* _ErrorMessage) throw() { return __wcserror_s(_Buffer, _Size, _ErrorMessage); } }
+#line 303 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+  __declspec(dllimport) int __cdecl _wcsicmp(
+      wchar_t const* _String1,
+      wchar_t const* _String2
+    );
+
+  __declspec(dllimport) int __cdecl _wcsicmp_l(
+        wchar_t const* _String1,
+        wchar_t const* _String2,
+      _locale_t      _Locale
+    );
+
+  __declspec(dllimport) int __cdecl _wcsnicmp(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount
+    );
+
+  __declspec(dllimport) int __cdecl _wcsnicmp_l(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount,
+                        _locale_t      _Locale
+    );
+
+ __declspec(dllimport) errno_t __cdecl _wcsnset_s(
+      wchar_t* _Destination,
+                                 size_t   _SizeInWords,
+                                 wchar_t  _Value,
+                                 size_t   _MaxCount
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcsnset_s(  wchar_t (&_Destination)[_Size],   wchar_t _Value,   size_t _MaxCount) throw() { return _wcsnset_s(_Destination, _Size, _Value, _MaxCount); } }
+#line 341 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcsnset_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _wcsnset(  wchar_t *_String,   wchar_t _Value,   size_t _MaxCount);
+#line 349 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(dllimport) wchar_t* __cdecl _wcsrev(
+      wchar_t* _String
+    );
+
+ __declspec(dllimport) errno_t __cdecl _wcsset_s(
+      wchar_t* _Destination,
+                                 size_t   _SizeInWords,
+                                 wchar_t  _Value
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcsset_s(  wchar_t (&_String)[_Size],   wchar_t _Value) throw() { return _wcsset_s(_String, _Size, _Value); } }
+#line 365 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcsset_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _wcsset(  wchar_t *_String,   wchar_t _Value);
+#line 372 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ __declspec(dllimport) errno_t __cdecl _wcslwr_s(
+      wchar_t* _String,
+                                 size_t   _SizeInWords
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcslwr_s(  wchar_t (&_String)[_Size]) throw() { return _wcslwr_s(_String, _Size); } }
+#line 382 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcslwr_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _wcslwr( wchar_t *_String);
+#line 387 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+__declspec(dllimport) errno_t __cdecl _wcslwr_s_l(
+      wchar_t*  _String,
+                                 size_t    _SizeInWords,
+                             _locale_t _Locale
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcslwr_s_l(  wchar_t (&_String)[_Size],   _locale_t _Locale) throw() { return _wcslwr_s_l(_String, _Size, _Locale); } }
+#line 400 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcslwr_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _wcslwr_l(  wchar_t *_String,   _locale_t _Locale);
+#line 407 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+__declspec(dllimport) errno_t __cdecl _wcsupr_s(
+      wchar_t* _String,
+                          size_t   _Size
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcsupr_s(  wchar_t (&_String)[_Size]) throw() { return _wcsupr_s(_String, _Size); } }
+#line 418 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcsupr_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _wcsupr( wchar_t *_String);
+#line 423 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+__declspec(dllimport) errno_t __cdecl _wcsupr_s_l(
+      wchar_t*  _String,
+                          size_t    _Size,
+                      _locale_t _Locale
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _wcsupr_s_l(  wchar_t (&_String)[_Size],   _locale_t _Locale) throw() { return _wcsupr_s_l(_String, _Size, _Locale); } }
+#line 436 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_wcsupr_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) wchar_t* __cdecl _wcsupr_l(  wchar_t *_String,   _locale_t _Locale);
+#line 443 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+ 
+
+__declspec(dllimport) size_t __cdecl wcsxfrm(
+        wchar_t*       _Destination,
+                                         wchar_t const* _Source,
+                size_t         _MaxCount
+    );
+
+ 
+
+__declspec(dllimport) size_t __cdecl _wcsxfrm_l(
+        wchar_t*       _Destination,
+                                         wchar_t const* _Source,
+                size_t         _MaxCount,
+                                       _locale_t      _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl wcscoll(
+      wchar_t const* _String1,
+      wchar_t const* _String2
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcscoll_l(
+        wchar_t const* _String1,
+        wchar_t const* _String2,
+      _locale_t      _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcsicoll(
+      wchar_t const* _String1,
+      wchar_t const* _String2
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcsicoll_l(
+        wchar_t const* _String1,
+        wchar_t const* _String2,
+      _locale_t      _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcsncoll(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcsncoll_l(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount,
+                        _locale_t      _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcsnicoll(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount
+    );
+
+ 
+__declspec(dllimport) int __cdecl _wcsnicoll_l(
+      wchar_t const* _String1,
+      wchar_t const* _String2,
+                            size_t         _MaxCount,
+                        _locale_t      _Locale
+    );
+
+
+
+
+
+
+
+
+
+extern "C++" {
+
+     
+    
+    inline wchar_t* __cdecl wcschr(  wchar_t* _String, wchar_t _C)
+    {
+        return const_cast<wchar_t*>(wcschr(static_cast<wchar_t const*>(_String), _C));
+    }
+
+     
+    inline wchar_t* __cdecl wcspbrk(  wchar_t* _String,   wchar_t const* _Control)
+    {
+        return const_cast<wchar_t*>(wcspbrk(static_cast<wchar_t const*>(_String), _Control));
+    }
+
+     
+    inline wchar_t* __cdecl wcsrchr(  wchar_t* _String,   wchar_t _C)
+    {
+        return const_cast<wchar_t*>(wcsrchr(static_cast<wchar_t const*>(_String), _C));
+    }
+
+       
+    
+    inline wchar_t* __cdecl wcsstr(  wchar_t* _String,   wchar_t const*_SubStr)
+    {
+        return const_cast<wchar_t*>(wcsstr(static_cast<wchar_t const*>(_String), _SubStr));
+    }
+
+}
+#line 555 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+
+
+
+
+
+
+
+    
+
+
+#line 568 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsdup" ". See online help for details."))
+    __declspec(dllimport) wchar_t* __cdecl wcsdup(
+          wchar_t const* _String
+        );
+
+    
+
+#line 577 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+    
+    
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsicmp" ". See online help for details."))
+    __declspec(dllimport) int __cdecl wcsicmp(
+          wchar_t const* _String1,
+          wchar_t const* _String2
+        );
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsnicmp" ". See online help for details."))
+    __declspec(dllimport) int __cdecl wcsnicmp(
+          wchar_t const* _String1,
+          wchar_t const* _String2,
+                                size_t         _MaxCount
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsnset" ". See online help for details."))
+     
+    __declspec(dllimport) wchar_t* __cdecl wcsnset(
+          wchar_t* _String,
+                                  wchar_t  _Value,
+                                  size_t   _MaxCount
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsrev" ". See online help for details."))
+     
+    __declspec(dllimport) wchar_t* __cdecl wcsrev(
+          wchar_t* _String
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsset" ". See online help for details."))
+     
+    __declspec(dllimport) wchar_t* __cdecl wcsset(
+          wchar_t* _String,
+               wchar_t  _Value
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcslwr" ". See online help for details."))
+     
+    __declspec(dllimport) wchar_t* __cdecl wcslwr(
+          wchar_t* _String
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsupr" ". See online help for details."))
+     
+    __declspec(dllimport) wchar_t* __cdecl wcsupr(
+          wchar_t* _String
+        );
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_wcsicoll" ". See online help for details."))
+    __declspec(dllimport) int __cdecl wcsicoll(
+          wchar_t const* _String1,
+          wchar_t const* _String2
+        );
+
+#line 634 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+
+
+} __pragma(pack(pop))
+
+#line 640 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\corecrt_wstring.h"
+
+#pragma warning(pop) 
+#pragma external_header(pop)
+#line 15 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+
+
+#pragma warning(push)
+#pragma warning(disable: 4324  4514 4574 4710 4793 4820 4995 4996 28719 28726 28727 )
+
+
+__pragma(pack(push, 8)) extern "C" {
+
+
+
+
+
+
+
+    
+    __declspec(dllimport) errno_t __cdecl strcpy_s(
+          char*       _Destination,
+                                  rsize_t     _SizeInBytes,
+                                char const* _Source
+        );
+
+    
+    __declspec(dllimport) errno_t __cdecl strcat_s(
+          char*       _Destination,
+                                     rsize_t     _SizeInBytes,
+                                   char const* _Source
+        );
+
+    
+    __declspec(dllimport) errno_t __cdecl strerror_s(
+          char*  _Buffer,
+                                  size_t _SizeInBytes,
+                                  int    _ErrorNumber);
+
+    
+    __declspec(dllimport) errno_t __cdecl strncat_s(
+          char*       _Destination,
+                                     rsize_t     _SizeInBytes,
+               char const* _Source,
+                                     rsize_t     _MaxCount
+        );
+
+    
+    __declspec(dllimport) errno_t __cdecl strncpy_s(
+          char*       _Destination,
+                                  rsize_t     _SizeInBytes,
+            char const* _Source,
+                                  rsize_t     _MaxCount
+        );
+
+     
+    __declspec(dllimport) char*  __cdecl strtok_s(
+                          char*       _String,
+                                 char const* _Delimiter,
+            char**      _Context
+        );
+
+#line 75 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(dllimport) void* __cdecl _memccpy(
+      void*       _Dst,
+                                   void const* _Src,
+                                   int         _Val,
+                                   size_t      _MaxCount
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl strcat_s(char (&_Destination)[_Size],   char const* _Source) throw() { return strcat_s(_Destination, _Size, _Source); } }
+#line 88 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+
+    __declspec(deprecated("This function or variable may be unsafe. Consider using " "strcat_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))  char* __cdecl strcat( char *_Destination,  char const* _Source);
+#line 96 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+#line 98 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+int __cdecl strcmp(
+      char const* _Str1,
+      char const* _Str2
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strcmpi(
+      char const* _String1,
+      char const* _String2
+    );
+
+ 
+__declspec(dllimport) int __cdecl strcoll(
+      char const* _String1,
+      char const* _String2
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strcoll_l(
+        char const* _String1,
+        char const* _String2,
+      _locale_t   _Locale
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl strcpy_s(  char (&_Destination)[_Size],   char const* _Source) throw() { return strcpy_s(_Destination, _Size, _Source); } }
+#line 129 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "strcpy_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))  char* __cdecl strcpy( char *_Destination,  char const* _Source);
+#line 135 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+__declspec(dllimport) size_t __cdecl strcspn(
+      char const* _Str,
+      char const* _Control
+    );
+
+
+
+
+#line 146 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+__declspec(dllimport) __declspec(allocator) char* __cdecl _strdup(
+      char const* _Source
+    );
+
+
+
+#line 155 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+ 
+  __declspec(deprecated("This function or variable may be unsafe. Consider using " "_strerror_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+__declspec(dllimport) char*  __cdecl _strerror(
+      char const* _ErrorMessage
+    );
+
+
+__declspec(dllimport) errno_t __cdecl _strerror_s(
+      char*       _Buffer,
+                              size_t      _SizeInBytes,
+                        char const* _ErrorMessage
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strerror_s(char (&_Buffer)[_Size],   char const* _ErrorMessage) throw() { return _strerror_s(_Buffer, _Size, _ErrorMessage); } }
+#line 175 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+  __declspec(deprecated("This function or variable may be unsafe. Consider using " "strerror_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+__declspec(dllimport) char* __cdecl strerror(
+      int _ErrorMessage
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl strerror_s(char (&_Buffer)[_Size],   int _ErrorMessage) throw() { return strerror_s(_Buffer, _Size, _ErrorMessage); } }
+#line 187 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+__declspec(dllimport) int __cdecl _stricmp(
+      char const* _String1,
+      char const* _String2
+    );
+
+ 
+__declspec(dllimport) int __cdecl _stricoll(
+      char const* _String1,
+      char const* _String2
+    );
+
+ 
+__declspec(dllimport) int __cdecl _stricoll_l(
+        char const* _String1,
+        char const* _String2,
+      _locale_t   _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl _stricmp_l(
+        char const* _String1,
+        char const* _String2,
+      _locale_t   _Locale
+    );
+
+ 
+size_t __cdecl strlen(
+      char const* _Str
+    );
+
+
+__declspec(dllimport) errno_t __cdecl _strlwr_s(
+      char*  _String,
+                          size_t _Size
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strlwr_s(  char (&_String)[_Size]) throw() { return _strlwr_s(_String, _Size); } }
+#line 229 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_strlwr_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _strlwr( char *_String);
+#line 234 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+__declspec(dllimport) errno_t __cdecl _strlwr_s_l(
+      char*     _String,
+                          size_t    _Size,
+                      _locale_t _Locale
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strlwr_s_l(  char (&_String)[_Size],   _locale_t _Locale) throw() { return _strlwr_s_l(_String, _Size, _Locale); } }
+#line 247 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_strlwr_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _strlwr_l(  char *_String,   _locale_t _Locale);
+#line 254 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl strncat_s(  char (&_Destination)[_Size],   char const* _Source,   size_t _Count) throw() { return strncat_s(_Destination, _Size, _Source, _Count); } }
+#line 261 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "strncat_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl strncat(  char *_Destination,   char const* _Source,   size_t _Count);
+#line 269 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+__declspec(dllimport) int __cdecl strncmp(
+      char const* _Str1,
+      char const* _Str2,
+                            size_t      _MaxCount
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strnicmp(
+      char const* _String1,
+      char const* _String2,
+                            size_t      _MaxCount
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strnicmp_l(
+      char const* _String1,
+      char const* _String2,
+                            size_t      _MaxCount,
+                        _locale_t   _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strnicoll(
+      char const* _String1,
+      char const* _String2,
+                            size_t      _MaxCount
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strnicoll_l(
+      char const* _String1,
+      char const* _String2,
+                            size_t      _MaxCount,
+                        _locale_t   _Locale
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strncoll(
+      char const* _String1,
+      char const* _String2,
+                            size_t      _MaxCount
+    );
+
+ 
+__declspec(dllimport) int __cdecl _strncoll_l(
+      char const* _String1,
+      char const* _String2,
+                            size_t      _MaxCount,
+                        _locale_t   _Locale
+    );
+
+__declspec(dllimport) size_t __cdecl __strncnt(
+      char const* _String,
+                         size_t      _Count
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl strncpy_s(char (&_Destination)[_Size],   char const* _Source,   size_t _Count) throw() { return strncpy_s(_Destination, _Size, _Source, _Count); } }
+#line 333 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "strncpy_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl strncpy(    char *_Destination,   char const* _Source,   size_t _Count);
+#line 341 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+
+#line 347 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+#line 351 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+__declspec(dllimport) size_t __cdecl strnlen(
+      char const* _String,
+                            size_t      _MaxCount
+    );
+
+
+
+     
+    
+#line 363 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+    
+#line 367 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+    static __inline size_t __cdecl strnlen_s(
+          char const* _String,
+                                size_t      _MaxCount
+        )
+    {
+        return _String == 0 ? 0 : strnlen(_String, _MaxCount);
+    }
+
+#line 376 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+__declspec(dllimport) errno_t __cdecl _strnset_s(
+      char*  _String,
+                                 size_t _SizeInBytes,
+                                 int    _Value,
+                                 size_t _MaxCount
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strnset_s(  char (&_Destination)[_Size],   int _Value,   size_t _Count) throw() { return _strnset_s(_Destination, _Size, _Value, _Count); } }
+#line 391 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_strnset_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _strnset(  char *_Destination,   int _Value,   size_t _Count);
+#line 399 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+__declspec(dllimport) char const* __cdecl strpbrk(
+      char const* _Str,
+      char const* _Control
+    );
+
+__declspec(dllimport) char* __cdecl _strrev(
+      char* _Str
+    );
+
+
+__declspec(dllimport) errno_t __cdecl _strset_s(
+      char*  _Destination,
+                                     size_t _DestinationSize,
+                                     int    _Value
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strset_s(  char (&_Destination)[_Size],   int _Value) throw() { return _strset_s(_Destination, _Size, _Value); } }
+#line 422 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_strset_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))  char* __cdecl _strset( char *_Destination,  int _Value);
+#line 428 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+__declspec(dllimport) size_t __cdecl strspn(
+      char const* _Str,
+      char const* _Control
+    );
+
+  __declspec(deprecated("This function or variable may be unsafe. Consider using " "strtok_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details."))
+__declspec(dllimport) char* __cdecl strtok(
+      char*       _String,
+             char const* _Delimiter
+    );
+
+
+__declspec(dllimport) errno_t __cdecl _strupr_s(
+      char*  _String,
+                          size_t _Size
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strupr_s(  char (&_String)[_Size]) throw() { return _strupr_s(_String, _Size); } }
+#line 451 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_strupr_s" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _strupr( char *_String);
+#line 456 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+__declspec(dllimport) errno_t __cdecl _strupr_s_l(
+      char*     _String,
+                          size_t    _Size,
+                      _locale_t _Locale
+    );
+
+extern "C++" { template <size_t _Size> inline errno_t __cdecl _strupr_s_l(  char (&_String)[_Size],   _locale_t _Locale) throw() { return _strupr_s_l(_String, _Size, _Locale); } }
+#line 469 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+__declspec(deprecated("This function or variable may be unsafe. Consider using " "_strupr_s_l" " instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. " "See online help for details.")) __declspec(dllimport) char* __cdecl _strupr_l(  char *_String,   _locale_t _Locale);
+#line 476 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+ 
+
+__declspec(dllimport) size_t __cdecl strxfrm(
+        char*       _Destination,
+                                         char const* _Source,
+                 size_t      _MaxCount
+    );
+
+ 
+
+__declspec(dllimport) size_t __cdecl _strxfrm_l(
+        char*       _Destination,
+                                         char const* _Source,
+                 size_t      _MaxCount,
+                                       _locale_t   _Locale
+    );
+
+
+
+
+extern "C++"
+{
+     
+    inline char* __cdecl strchr(  char* const _String,   int const _Ch)
+    {
+        return const_cast<char*>(strchr(static_cast<char const*>(_String), _Ch));
+    }
+
+     
+    inline char* __cdecl strpbrk(  char* const _String,   char const* const _Control)
+    {
+        return const_cast<char*>(strpbrk(static_cast<char const*>(_String), _Control));
+    }
+
+     
+    inline char* __cdecl strrchr(  char* const _String,   int const _Ch)
+    {
+        return const_cast<char*>(strrchr(static_cast<char const*>(_String), _Ch));
+    }
+
+       
+    inline char* __cdecl strstr(  char* const _String,   char const* const _SubString)
+    {
+        return const_cast<char*>(strstr(static_cast<char const*>(_String), _SubString));
+    }
+}
+#line 524 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+
+
+
+    
+    
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strdup" ". See online help for details."))
+    __declspec(dllimport) char* __cdecl strdup(
+          char const* _String
+        );
+    
+
+    
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strcmpi" ". See online help for details."))
+    __declspec(dllimport) int __cdecl strcmpi(
+          char const* _String1,
+          char const* _String2
+        );
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_stricmp" ". See online help for details."))
+    __declspec(dllimport) int __cdecl stricmp(
+          char const* _String1,
+          char const* _String2
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strlwr" ". See online help for details."))
+    __declspec(dllimport) char* __cdecl strlwr(
+          char* _String
+        );
+
+      __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strnicmp" ". See online help for details."))
+    __declspec(dllimport) int __cdecl strnicmp(
+          char const* _String1,
+          char const* _String2,
+                                size_t      _MaxCount
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strnset" ". See online help for details."))
+    __declspec(dllimport) char* __cdecl strnset(
+          char*  _String,
+                                  int    _Value,
+                                  size_t _MaxCount
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strrev" ". See online help for details."))
+    __declspec(dllimport) char* __cdecl strrev(
+          char* _String
+        );
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strset" ". See online help for details."))
+    char* __cdecl strset(
+          char* _String,
+               int   _Value);
+
+    __declspec(deprecated("The POSIX name for this item is deprecated. Instead, use the ISO C " "and C++ conformant name: " "_strupr" ". See online help for details."))
+    __declspec(dllimport) char* __cdecl strupr(
+          char* _String
+        );
+
+#line 585 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+
+
+
+} __pragma(pack(pop))
+
+#pragma warning(pop) 
+#line 592 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+#line 593 "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22000.0\\ucrt\\string.h"
+#pragma external_header(pop)
+#line 4 "C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\fileRead.cpp"
+
+void printFile(const char* path) {
 	FILE* fp = fopen(path, "r");
-	if (fp == 0) return 0;
-	fscanf(fp, "%d", count);
-	int* buffer = (int*)calloc(*count, sizeof(int));
-	if (buffer == 0) return 0;
-	for (int i = 0; i < *count; i++) {
-		fscanf(fp, "%d ", buffer + i);
+	if (fp == 0) {
+		printf("ERROR> 파일 개방 실패!!\n");
+		return;
 	}
-	free(fp);
-	return buffer;
+	char buffer[1024];
+	while (1){
+		memset(buffer, 0, 1024);
+		char* result = fgets(buffer, 1024, fp);
+		if (result == 0) break;
+		printf("%s", buffer);
+	}
+
+	fclose(fp);
 }
 
-void print(int* arr, int size){
-	for (int i = 0; i < size; i++) {
-		printf("%d, ", *(arr + i));
+void writePerson(person_t* person) {
+	FILE* fp = fopen("C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\person.txt", "w");
+	if (fp == 0) {
+		fprintf((__acrt_iob_func(2)), "ERROR> 파일 개방 실패\n");
+		return;
 	}
-	printf("\n");
+
+	fwrite(person, sizeof(person), 1, fp);
+	fclose(fp);
 }
+
+bool_t readPerson(person_t* person) {
+	FILE* fp = fopen("C:\\Users\\현대오토19\\source\\repos\\CStudy\\CStudy\\person.txt", "r");
+	if (fp == 0) return False;
+	memset(person, 0, sizeof(person));
+	int count = fread(person, 1, sizeof(person_t), fp);
+	if(count != 1) return False;
+	fclose(fp);
+	return True;
+
+}
+

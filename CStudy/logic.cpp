@@ -18,3 +18,10 @@ int* readData(const char* path, int* count) {
 	free(fp);
 	return buffer;
 }
+
+void print(int* arr, int size){
+	for (int i = 0; i < size; i++) {
+		printf("%d, ", *(arr + i));
+	}
+	printf("\n");
+}
