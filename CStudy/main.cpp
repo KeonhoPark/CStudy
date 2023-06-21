@@ -1,37 +1,20 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include<stdio.h>
 #include<stdlib.h>
-typedef enum{True=1, False=0} bool_t;
-
-bool_t isPrime(int);
-
-bool_t isPrime(int num) {
-	if (num == 1 || num == 2) return False;
-
-	for (int i = 2; i < num; i++) {
-		if (num % i == 0) {
-			return False;
-		}
-	}
-	return True;
-}
-
-
 int main(void) {
-	int num = 0;
-	if (scanf("%d", &num) == 1) {
-		if (isPrime(num) == True) {
-			printf("소수입니다.\n");
-		}
-		else {
-			printf("소수가 아닙니다.\n");
-		}
-	}
-	else {
-		printf("잘못 입력하였습니다\n");
-	}
-	printf("프로그램을 종료합니다.\n");
+	
+	int arr[][4] = { {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12} };
+	int(*ptr)[4] = arr;
 
-	getchar();
+	int row = (int)(sizeof(arr) / sizeof(arr[0]));
+	int col = (int)(sizeof(arr[0]) / sizeof(arr[0][0]));
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			printf("%d\t", *(*(ptr+i)+j));
+		}
+		printf("\n");
+	}
+
 	return 0;
 }
